@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curso de Preparação para o Batismo – AD Miranda do Corvo</title>
+<title>Curso de Preparação para o Batismo – AD Miranda do Corvo, Poiares & Arganil</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --azul: #1F4E79;
-  --azul-m: #2E75B6;
-  --azul-l: #DEEAF1;
-  --verde: #0F6E56;
-  --verde-l: #E1F5EE;
+  --azul: #3E7E94;
+  --azul-m: #4F95AC;
+  --azul-l: #DCEDF2;
+  --verde: #2C7A6B;
+  --verde-l: #DEF0EC;
   --ouro: #C9A227;
   --ouro-l: #FEF8E7;
-  --cinza: #F5F4F0;
-  --texto: #1a1a1a;
-  --texto-s: #555;
+  --cinza: #F4F6F7;
+  --texto: #1a2327;
+  --texto-s: #56656b;
   --borda: rgba(0,0,0,0.08);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   background: #F8F7F3;
   color: var(--texto);
   min-height: 100vh;
@@ -57,6 +57,16 @@ body {
   background: rgba(255,255,255,0.03);
   pointer-events: none;
 }
+.hero-logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 6px;
+  margin: 0 auto 1.25rem;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
 .hero-label {
   font-size: 11px;
   font-weight: 500;
@@ -66,9 +76,10 @@ body {
   margin-bottom: 1rem;
 }
 .hero h1 {
-  font-family: 'Crimson Pro', Georgia, serif;
+  font-family: 'Lato', sans-serif;
   font-size: clamp(2rem, 6vw, 2.8rem);
   font-weight: 300;
+  letter-spacing: -0.02em;
   line-height: 1.2;
   margin-bottom: 0.75rem;
   color: #fff;
@@ -85,7 +96,7 @@ body {
 .hero-verse {
   max-width: 480px;
   margin: 0 auto 2rem;
-  font-family: 'Crimson Pro', Georgia, serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.05rem;
   font-style: italic;
   color: rgba(255,255,255,0.8);
@@ -97,7 +108,7 @@ body {
   display: block;
   font-size: 12px;
   font-style: normal;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: rgba(255,255,255,0.45);
   margin-top: 6px;
   letter-spacing: 0.05em;
@@ -161,7 +172,7 @@ body {
 }
 .part-tag-2 { background: var(--verde); }
 .part-name {
-  font-family: 'Crimson Pro', Georgia, serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-style: italic;
   color: var(--texto-s);
@@ -231,7 +242,7 @@ body {
 }
 
 .lesson-intro {
-  font-family: 'Crimson Pro', Georgia, serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.05rem;
   color: var(--texto-s);
   line-height: 1.65;
@@ -246,7 +257,7 @@ body {
   margin-bottom: 1rem;
 }
 .verse p {
-  font-family: 'Crimson Pro', Georgia, serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-style: italic;
   color: #5a3e00;
@@ -255,7 +266,7 @@ body {
 .verse span {
   display: block;
   font-size: 11px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-style: normal;
   font-weight: 500;
   color: var(--ouro);
@@ -360,7 +371,8 @@ footer a { color: var(--azul-m); text-decoration: none; }
 <body>
 
 <div class="hero">
-  <p class="hero-label">Assembleia de Deus · Miranda do Corvo</p>
+  <img src="logo.png" alt="Assembleia de Deus – Miranda do Corvo, Poiares & Arganil" class="hero-logo">
+  <p class="hero-label">Assembleia de Deus · Miranda do Corvo, Poiares &amp; Arganil</p>
   <h1>Curso de preparação<br><em>para o batismo</em></h1>
   <p class="hero-sub">13 aulas · Parte I: Doutrina &nbsp;·&nbsp; Parte II: Integração</p>
   <div class="hero-verse">
@@ -382,7 +394,7 @@ footer a { color: var(--azul-m); text-decoration: none; }
 <div class="lessons" id="lessons"></div>
 
 <footer>
-  <strong>Assembleia de Deus – Miranda do Corvo</strong><br>
+  <strong>Assembleia de Deus – Miranda do Corvo, Poiares &amp; Arganil</strong><br>
   Rua Dom Afonso Henriques, Nº25 · <a href="mailto:geral.admiranda@gmail.com">geral.admiranda@gmail.com</a> · Tlm: 910 009 776<br>
   <span style="margin-top:6px;display:block">Parte da <a href="https://www.cadp.pt" target="_blank">Convenção das Assembleias de Deus em Portugal (CADP)</a></span>
 </footer>

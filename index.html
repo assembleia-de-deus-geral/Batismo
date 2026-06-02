@@ -140,6 +140,33 @@ body {
   gap: 10px;
 }
 
+.part-divider {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 1.5rem 0 0.5rem;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--borda);
+}
+.part-divider:first-child { margin-top: 0; }
+.part-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--azul);
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.part-tag-2 { background: var(--verde); }
+.part-name {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--texto-s);
+}
+
 .lesson {
   background: #fff;
   border: 1px solid var(--borda);
@@ -335,7 +362,7 @@ footer a { color: var(--azul-m); text-decoration: none; }
 <div class="hero">
   <p class="hero-label">Assembleia de Deus · Miranda do Corvo</p>
   <h1>Curso de preparação<br><em>para o batismo</em></h1>
-  <p class="hero-sub">9 aulas · Manual baseado na Declaração de Fé da CADP</p>
+  <p class="hero-sub">13 aulas · Parte I: Doutrina &nbsp;·&nbsp; Parte II: Integração</p>
   <div class="hero-verse">
     "Ide, portanto, fazei discípulos de todas as nações, baptizando-os em nome do Pai, e do Filho, e do Espírito Santo."
     <span>Mateus 28:19</span>
@@ -345,7 +372,7 @@ footer a { color: var(--azul-m); text-decoration: none; }
 <div class="progress-wrap">
   <div class="progress-meta">
     <p>O teu progresso</p>
-    <strong id="prog-label">0 de 9 aulas concluídas</strong>
+    <strong id="prog-label">0 de 13 aulas concluídas</strong>
   </div>
   <div class="progress-track">
     <div class="progress-fill" id="prog-bar" style="width:0%"></div>
@@ -487,10 +514,75 @@ const LESSONS = [
       "Marcação da entrevista final com o pastor"
     ],
     form:"https://form.jotform.com/261520916721049"
+  },
+  {
+    num:10,
+    part:2,
+    title:"Cultura e sociedade portuguesa",
+    desc:"Identidade, valores, gastronomia, festividades e a língua portuguesa",
+    verse:"Nisto não há judeu nem grego; não há servo nem livre; porque todos vós sois um em Cristo Jesus.",
+    ref:"Gálatas 3:28",
+    topics:[
+      "Identidade e valores do povo português (a 'saudade', família, hospitalidade)",
+      "Festividades, tradições e gastronomia nacionais",
+      "Etiqueta social e costumes do quotidiano",
+      "A língua portuguesa como porta de integração",
+      "Documentação essencial: NIF, NISS, residência, SNS"
+    ],
+    form:"https://form.jotform.com/261522642156049"
+  },
+  {
+    num:11,
+    part:2,
+    title:"Viver em Portugal: álcool, condução e documentação",
+    desc:"Abordagem cristã ao álcool e as leis de trânsito e identificação",
+    verse:"Não vos embriagueis com vinho, em que há dissolução; mas enchei-vos do Espírito.",
+    ref:"Efésios 5:18",
+    topics:[
+      "O álcool na cultura portuguesa – uma abordagem bíblica equilibrada",
+      "Abstinência e consumo moderado: liberdade e responsabilidade",
+      "Carta de condução, seguro obrigatório e inspeção do veículo",
+      "Motociclos: uso obrigatório de capacete",
+      "Dever de ter sempre documento de identificação na via pública"
+    ],
+    form:"https://form.jotform.com/261522460556051"
+  },
+  {
+    num:12,
+    part:2,
+    title:"Integração na Igreja local",
+    desc:"Acolhimento, diversidade cultural, direitos e responsabilidades",
+    verse:"Vi uma grande multidão de todas as nações, e tribos, e povos, e línguas, em pé diante do trono.",
+    ref:"Apocalipse 7:9",
+    topics:[
+      "O acolhimento do novo membro na comunidade",
+      "Diversidade cultural como riqueza e unidade em Cristo",
+      "Diferença entre práticas culturais e doutrina bíblica",
+      "Práticas religiosas de outras origens – libertação em Cristo",
+      "Direitos e responsabilidades do membro da Igreja"
+    ],
+    form:"https://form.jotform.com/261522134848053"
+  },
+  {
+    num:13,
+    part:2,
+    title:"Recursos, apoio e conclusão",
+    desc:"Recursos de apoio à integração e conclusão do curso completo",
+    verse:"E assim, pela fé e pela paciência, herdarão as promessas.",
+    ref:"Hebreus 6:12",
+    topics:[
+      "Apoio disponível na Igreja para o novo membro",
+      "Recursos nacionais: ACM, AIMA, Segurança Social, SNS, IMT",
+      "Contactos úteis da nossa comunidade",
+      "Conclusão e reflexão final sobre todo o percurso",
+      "Próximos passos no caminho de fé e integração"
+    ],
+    form:"https://form.jotform.com/261522813024043"
   }
 ];
 
-const STORAGE_KEY = 'admc_batismo_v1';
+const TOTAL = LESSONS.length;
+const STORAGE_KEY = 'admc_batismo_v2';
 
 function getState() {
   try {
@@ -520,16 +612,28 @@ function iconExternal() {
 function render() {
   const state = getState();
   const doneCount = state.done.length;
-  document.getElementById('prog-bar').style.width = (doneCount / 9 * 100) + '%';
-  document.getElementById('prog-label').textContent = doneCount + ' de 9 aulas concluídas';
+  document.getElementById('prog-bar').style.width = (doneCount / TOTAL * 100) + '%';
+  document.getElementById('prog-label').textContent = doneCount + ' de ' + TOTAL + ' aulas concluídas';
 
   const container = document.getElementById('lessons');
   container.innerHTML = '';
 
+  let lastPart = 0;
   LESSONS.forEach(l => {
     const isDone = state.done.includes(l.num);
     const isOpen = state.open === l.num;
     const isLocked = !isDone && !isOpen;
+
+    const thisPart = l.part || 1;
+    if (thisPart !== lastPart) {
+      lastPart = thisPart;
+      const divider = document.createElement('div');
+      divider.className = 'part-divider';
+      divider.innerHTML = thisPart === 1
+        ? '<span class="part-tag">Parte I</span><span class="part-name">Manual do candidato ao batismo</span>'
+        : '<span class="part-tag part-tag-2">Parte II</span><span class="part-name">Guia de integração na comunidade</span>';
+      container.appendChild(divider);
+    }
 
     const div = document.createElement('div');
     div.className = 'lesson' + (isDone ? ' done' : isOpen ? ' active' : ' locked');
@@ -586,7 +690,7 @@ function markDone(e, num) {
   e.preventDefault();
   const state = getState();
   if (!state.done.includes(num)) state.done.push(num);
-  state.open = num < 9 ? num + 1 : null;
+  state.open = num < TOTAL ? num + 1 : null;
   saveState(state);
   render();
   setTimeout(() => {

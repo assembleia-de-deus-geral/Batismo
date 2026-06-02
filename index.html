@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curso de Preparação para o Batismo – AD Miranda do Corvo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --azul: #1F4E79;
+  --azul-m: #2E75B6;
+  --azul-l: #DEEAF1;
+  --verde: #0F6E56;
+  --verde-l: #E1F5EE;
+  --ouro: #C9A227;
+  --ouro-l: #FEF8E7;
+  --cinza: #F5F4F0;
+  --texto: #1a1a1a;
+  --texto-s: #555;
+  --borda: rgba(0,0,0,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #F8F7F3;
+  color: var(--texto);
+  min-height: 100vh;
+}
+
+/* HERO */
+.hero {
+  background: var(--azul);
+  color: #fff;
+  padding: 3.5rem 1.5rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+  pointer-events: none;
+}
+.hero-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+}
+.hero-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 1.25rem;
+}
+.hero-verse span {
+  display: block;
+  font-size: 12px;
+  font-style: normal;
+  font-family: 'DM Sans', sans-serif;
+  color: rgba(255,255,255,0.45);
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+}
+
+/* PROGRESS */
+.progress-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.progress-meta p { font-size: 13px; color: var(--texto-s); }
+.progress-meta strong { font-size: 13px; color: var(--azul); font-weight: 500; }
+.progress-track {
+  height: 5px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--azul);
+  border-radius: 99px;
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* LESSONS */
+.lessons {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lesson {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.lesson.locked { opacity: 0.48; }
+.lesson.active { border-color: var(--azul-m); box-shadow: 0 2px 16px rgba(31,78,121,0.1); }
+.lesson.done { border-left: 3px solid var(--verde); }
+
+.lesson-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+.lesson-header:hover { background: #FAFAF8; }
+.lesson.locked .lesson-header { cursor: default; }
+
+.num {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 500;
+  flex-shrink: 0;
+}
+.num-done { background: var(--verde-l); color: var(--verde); }
+.num-active { background: var(--azul-l); color: var(--azul); }
+.num-locked { background: var(--cinza); color: #aaa; }
+
+.lesson-info { flex: 1; min-width: 0; }
+.lesson-info h3 {
+  font-size: 14px; font-weight: 500;
+  color: var(--texto);
+  margin-bottom: 2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.lesson-info p { font-size: 12px; color: var(--texto-s); line-height: 1.4; }
+
+.badge {
+  font-size: 11px; font-weight: 500;
+  padding: 3px 10px; border-radius: 99px;
+  white-space: nowrap; flex-shrink: 0;
+}
+.badge-done { background: var(--verde-l); color: var(--verde); }
+.badge-active { background: var(--azul-l); color: var(--azul); }
+.badge-locked { background: var(--cinza); color: #aaa; }
+
+/* LESSON BODY */
+.lesson-body {
+  padding: 1.25rem;
+  border-top: 1px solid var(--borda);
+  animation: slideDown 0.25s ease;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lesson-intro {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--texto-s);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.verse {
+  background: var(--ouro-l);
+  border-left: 3px solid var(--ouro);
+  border-radius: 0 10px 10px 0;
+  padding: 0.875rem 1rem;
+  margin-bottom: 1rem;
+}
+.verse p {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: #5a3e00;
+  line-height: 1.55;
+}
+.verse span {
+  display: block;
+  font-size: 11px;
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--ouro);
+  margin-top: 5px;
+  letter-spacing: 0.04em;
+}
+
+.topics-title {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+.topics {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 1.25rem;
+}
+.topics li {
+  font-size: 13px;
+  color: var(--texto-s);
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.5;
+}
+.topics li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--azul-m);
+}
+
+.cta-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-top: 1rem;
+  border-top: 1px solid var(--borda);
+}
+.btn-form {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--azul);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.btn-form:hover { background: var(--azul-m); }
+.btn-form svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.btn-done {
+  background: none;
+  border: 1px solid var(--borda);
+  color: var(--texto-s);
+  font-size: 12px;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn-done:hover { background: var(--verde-l); border-color: var(--verde); color: var(--verde); }
+
+.done-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--verde);
+}
+.done-badge svg { width: 16px; height: 16px; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 12px;
+  color: #aaa;
+  border-top: 1px solid var(--borda);
+  background: #fff;
+}
+footer strong { color: var(--texto-s); font-weight: 500; }
+footer a { color: var(--azul-m); text-decoration: none; }
+
+@media (max-width: 480px) {
+  .hero { padding: 2.5rem 1.25rem 2rem; }
+  .lessons { padding: 1rem 1rem 3rem; }
+  .lesson-info h3 { white-space: normal; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <p class="hero-label">Assembleia de Deus · Miranda do Corvo</p>
+  <h1>Curso de preparação<br><em>para o batismo</em></h1>
+  <p class="hero-sub">9 aulas · Manual baseado na Declaração de Fé da CADP</p>
+  <div class="hero-verse">
+    "Ide, portanto, fazei discípulos de todas as nações, baptizando-os em nome do Pai, e do Filho, e do Espírito Santo."
+    <span>Mateus 28:19</span>
+  </div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-meta">
+    <p>O teu progresso</p>
+    <strong id="prog-label">0 de 9 aulas concluídas</strong>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="prog-bar" style="width:0%"></div>
+  </div>
+</div>
+
+<div class="lessons" id="lessons"></div>
+
+<footer>
+  <strong>Assembleia de Deus – Miranda do Corvo</strong><br>
+  Rua Dom Afonso Henriques, Nº25 · <a href="mailto:admirandadocorvo@gmail.com">admirandadocorvo@gmail.com</a> · Tlm: 910 009 776<br>
+  <span style="margin-top:6px;display:block">Parte da <a href="https://www.cadp.pt" target="_blank">Convenção das Assembleias de Deus em Portugal (CADP)</a></span>
+</footer>
+
+<script>
+const LESSONS = [
+  {
+    num:1,
+    title:"O que é a conversão?",
+    desc:"Pecado, necessidade de salvação e o novo nascimento em Cristo",
+    verse:"Em verdade, em verdade te digo que aquele que não nascer de novo não pode ver o reino de Deus.",
+    ref:"João 3:3",
+    topics:[
+      "A queda do homem e as consequências do pecado (Romanos 3:23)",
+      "O que significa converter-se de coração",
+      "Arrependimento, fé, confissão e novo nascimento",
+      "2 Coríntios 5:17 – nova criatura em Cristo"
+    ],
+    form:"https://form.jotform.com/261521456225048"
+  },
+  {
+    num:2,
+    title:"A declaração de fé da CADP",
+    desc:"Fundamentos doutrinários das Assembleias de Deus em Portugal",
+    verse:"Toda a Escritura é divinamente inspirada, e proveitosa para ensinar, para redarguir, para corrigir, para instruir em justiça.",
+    ref:"2 Timóteo 3:16",
+    topics:[
+      "A Santíssima Trindade – Pai, Filho e Espírito Santo",
+      "As Sagradas Escrituras como única autoridade suprema",
+      "O homem, o pecado e a salvação exclusivamente pela graça",
+      "A Segunda Vinda de Cristo e o Juízo Final"
+    ],
+    form:"https://form.jotform.com/261521624385052"
+  },
+  {
+    num:3,
+    title:"O batismo nas águas",
+    desc:"Significado, modo bíblico e preparação para o baptismo",
+    verse:"Fomos, pois, sepultados com Ele pelo batismo na morte, para que andemos em novidade de vida.",
+    ref:"Romanos 6:4",
+    topics:[
+      "O batismo por imersão total – modo bíblico e apostólico",
+      "O que o batismo simboliza: morte, sepultamento e ressurreição",
+      "Quem pode ser baptizado e as condições bíblicas",
+      "Como se preparar para o dia do batismo"
+    ],
+    form:"https://form.jotform.com/261521057869059"
+  },
+  {
+    num:4,
+    title:"A Ceia do Senhor",
+    desc:"O memorial da morte e ressurreição de Cristo",
+    verse:"Fazei isto em memória de mim.",
+    ref:"1 Coríntios 11:24",
+    topics:[
+      "O significado profundo do pão e do cálice",
+      "Quem pode participar na Ceia do Senhor",
+      "Exame pessoal antes de participar (1 Coríntios 11:28)",
+      "A Ceia como proclamação da esperança da vinda do Senhor"
+    ],
+    form:"https://form.jotform.com/261520697784064"
+  },
+  {
+    num:5,
+    title:"O batismo no Espírito Santo",
+    desc:"A plenitude do Espírito Santo e os dons espirituais",
+    verse:"Recebereis poder ao descer sobre vós o Espírito Santo, e ser-me-eis testemunhas.",
+    ref:"Actos 1:8",
+    topics:[
+      "O Batismo no Espírito Santo – distinto da conversão",
+      "A evidência inicial: falar em outras línguas (Actos 2:4)",
+      "Os dons espirituais de 1 Coríntios 12 e a sua actualidade",
+      "A cura divina como fruto da obra expiatória de Cristo"
+    ],
+    form:"https://form.jotform.com/261520731387052"
+  },
+  {
+    num:6,
+    title:"A vida cristã e a santificação",
+    desc:"Crescimento espiritual, disciplinas e separação do mundo",
+    verse:"Sede santos, porque eu sou santo.",
+    ref:"1 Pedro 1:16",
+    topics:[
+      "Santificação posicional e progressiva",
+      "Separação do mundo e vida simples (Romanos 12:2)",
+      "As disciplinas espirituais essenciais do crente",
+      "Frutos visíveis da santificação na vida quotidiana"
+    ],
+    form:"https://form.jotform.com/261520749984064"
+  },
+  {
+    num:7,
+    title:"Dízimos, ofertas e mordomia cristã",
+    desc:"Fidelidade financeira e gestão dos recursos que Deus confiou",
+    verse:"Honra ao Senhor com os teus bens e com as primícias de todos os teus lucros.",
+    ref:"Provérbios 3:9",
+    topics:[
+      "O dízimo – fundamento bíblico desde Génesis ao Novo Testamento",
+      "As ofertas como acto voluntário de adoração e gratidão",
+      "A promessa de Malaquias 3:10 e a fidelidade de Deus",
+      "Mordomia cristã: tempo, talentos, saúde e posses"
+    ],
+    form:"https://form.jotform.com/261521322069046"
+  },
+  {
+    num:8,
+    title:"A vida na Igreja local",
+    desc:"Membrasia, governo, culto e responsabilidades do crente",
+    verse:"Não deixando de congregar-nos uns com os outros.",
+    ref:"Hebreus 10:25",
+    topics:[
+      "Governo teocrático e consensual da Assembleia de Deus",
+      "O culto pentecostal – ordem e liberdade do Espírito",
+      "Direitos e responsabilidades do membro da Igreja",
+      "Serviço e ministérios na comunidade local"
+    ],
+    form:"https://form.jotform.com/261520757504051"
+  },
+  {
+    num:9,
+    title:"Preparação final e declaração de fé",
+    desc:"Lista de verificação, entrevista pastoral e declaração pessoal",
+    verse:"Se confessares com a tua boca que Jesus é Senhor, e creres no teu coração que Deus o ressuscitou dos mortos, serás salvo.",
+    ref:"Romanos 10:9",
+    topics:[
+      "Lista de verificação completa para o candidato ao baptismo",
+      "O que esperar no dia do baptismo",
+      "Declaração pessoal de fé perante a congregação",
+      "Marcação da entrevista final com o pastor"
+    ],
+    form:"https://form.jotform.com/261520916721049"
+  }
+];
+
+const STORAGE_KEY = 'admc_batismo_v1';
+
+function getState() {
+  try {
+    const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+    if (s && Array.isArray(s.done)) return s;
+  } catch(e) {}
+  return { done: [], open: 1 };
+}
+
+function saveState(s) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch(e) {}
+}
+
+function iconCheck() {
+  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,8 6.5,12 13,4"/></svg>`;
+}
+function iconBook() {
+  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h5a2 2 0 0 1 2 2v9l-3.5-2L2 14V3z"/><path d="M14 3H9a2 2 0 0 0-2 2v9l3.5-2L14 14V3z"/></svg>`;
+}
+function iconLock() {
+  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="8" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>`;
+}
+function iconExternal() {
+  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><polyline points="10,2 14,2 14,6"/><line x1="14" y1="2" x2="7" y2="9"/></svg>`;
+}
+
+function render() {
+  const state = getState();
+  const doneCount = state.done.length;
+  document.getElementById('prog-bar').style.width = (doneCount / 9 * 100) + '%';
+  document.getElementById('prog-label').textContent = doneCount + ' de 9 aulas concluídas';
+
+  const container = document.getElementById('lessons');
+  container.innerHTML = '';
+
+  LESSONS.forEach(l => {
+    const isDone = state.done.includes(l.num);
+    const isOpen = state.open === l.num;
+    const isLocked = !isDone && !isOpen;
+
+    const div = document.createElement('div');
+    div.className = 'lesson' + (isDone ? ' done' : isOpen ? ' active' : ' locked');
+
+    const numClass = isDone ? 'num-done' : isOpen ? 'num-active' : 'num-locked';
+    const numIcon = isDone ? iconCheck() : isOpen ? iconBook() : iconLock();
+    const badgeClass = isDone ? 'badge-done' : isOpen ? 'badge-active' : 'badge-locked';
+    const badgeText = isDone ? 'Concluída' : isOpen ? 'A decorrer' : 'Bloqueada';
+
+    let body = '';
+    if (isOpen || isDone) {
+      const topicsHtml = l.topics.map(t => `<li>${t}</li>`).join('');
+      const cta = isDone
+        ? `<div class="done-badge">${iconCheck()} Formulário submetido – aula concluída</div>`
+        : `<a class="btn-form" href="${l.form}" target="_blank" rel="noopener">${iconExternal()} Abrir questionário desta aula</a>
+           <button class="btn-done" onclick="markDone(event,${l.num})">✓ Já submeti o formulário</button>`;
+
+      body = `<div class="lesson-body">
+        <p class="lesson-intro">${l.desc}</p>
+        <div class="verse">
+          <p>"${l.verse}"</p>
+          <span>${l.ref}</span>
+        </div>
+        <p class="topics-title">Temas desta aula</p>
+        <ul class="topics">${topicsHtml}</ul>
+        <div class="cta-wrap">${cta}</div>
+      </div>`;
+    }
+
+    div.innerHTML = `
+      <div class="lesson-header" role="button" tabindex="0" aria-expanded="${isOpen}" onclick="toggleLesson(${l.num},${isLocked})" onkeydown="if(event.key==='Enter')toggleLesson(${l.num},${isLocked})">
+        <div class="num ${numClass}">${numIcon}</div>
+        <div class="lesson-info">
+          <h3>Aula ${l.num} — ${l.title}</h3>
+          <p>${l.desc}</p>
+        </div>
+        <span class="badge ${badgeClass}">${badgeText}</span>
+      </div>
+      ${body}
+    `;
+    container.appendChild(div);
+  });
+}
+
+function toggleLesson(num, locked) {
+  if (locked) return;
+  const state = getState();
+  state.open = (state.open === num) ? null : num;
+  saveState(state);
+  render();
+}
+
+function markDone(e, num) {
+  e.preventDefault();
+  const state = getState();
+  if (!state.done.includes(num)) state.done.push(num);
+  state.open = num < 9 ? num + 1 : null;
+  saveState(state);
+  render();
+  setTimeout(() => {
+    const next = document.querySelector('.lesson.active');
+    if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 150);
+}
+
+render();
+</script>
+</body>
+</html>

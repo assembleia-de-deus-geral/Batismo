@@ -8,709 +8,255 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --azul: #3E7E94;
-  --azul-m: #4F95AC;
-  --azul-l: #DCEDF2;
-  --verde: #2C7A6B;
-  --verde-l: #DEF0EC;
-  --ouro: #C9A227;
-  --ouro-l: #FEF8E7;
-  --cinza: #F4F6F7;
-  --texto: #1a2327;
-  --texto-s: #56656b;
-  --borda: rgba(0,0,0,0.08);
+:root{
+  --azul:#3E7E94; --azul-m:#4F95AC; --azul-l:#DCEDF2;
+  --verde:#2C7A6B; --verde-l:#DEF0EC; --ouro:#C9A227; --ouro-l:#FEF8E7;
+  --cinza:#F4F6F7; --texto:#1a2327; --texto-s:#56656b; --borda:rgba(0,0,0,0.08);
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Lato', sans-serif;
-  background: #F8F7F3;
-  color: var(--texto);
-  min-height: 100vh;
-}
-
-/* HERO */
-.hero {
-  background: var(--azul);
-  color: #fff;
-  padding: 3.5rem 1.5rem 2.5rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -60px; right: -60px;
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.04);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -80px; left: -40px;
-  width: 220px; height: 220px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.03);
-  pointer-events: none;
-}
-.hero-logo {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  background: #fff;
-  padding: 6px;
-  margin: 0 auto 1.25rem;
-  display: block;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
-.hero-label {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-  margin-bottom: 1rem;
-}
-.hero h1 {
-  font-family: 'Lato', sans-serif;
-  font-size: clamp(2rem, 6vw, 2.8rem);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
-  color: #fff;
-}
-.hero h1 em {
-  font-style: normal;
-  color: #fff;
-}
-.hero-sub {
-  font-size: 14px;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 2rem;
-}
-.hero-verse {
-  max-width: 480px;
-  margin: 0 auto 2rem;
-  font-family: 'Lato', sans-serif;
-  font-size: 1.05rem;
-  font-style: italic;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.6;
-  border-top: 1px solid rgba(255,255,255,0.15);
-  padding-top: 1.25rem;
-}
-.hero-verse span {
-  display: block;
-  font-size: 12px;
-  font-style: normal;
-  font-family: 'Lato', sans-serif;
-  color: rgba(255,255,255,0.45);
-  margin-top: 6px;
-  letter-spacing: 0.05em;
-}
-
-/* PROGRESS */
-.progress-wrap {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 1.5rem 1.5rem 0.5rem;
-}
-.progress-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-.progress-meta p { font-size: 13px; color: var(--texto-s); }
-.progress-meta strong { font-size: 13px; color: var(--azul); font-weight: 500; }
-.progress-track {
-  height: 5px;
-  background: rgba(0,0,0,0.08);
-  border-radius: 99px;
-  overflow: hidden;
-}
-.progress-fill {
-  height: 100%;
-  background: var(--azul);
-  border-radius: 99px;
-  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
-}
-
-/* LESSONS */
-.lessons {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 1.25rem 1.5rem 4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.part-divider {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  margin: 1.5rem 0 0.5rem;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--borda);
-}
-.part-divider:first-child { margin-top: 0; }
-.part-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #fff;
-  background: var(--azul);
-  padding: 3px 9px;
-  border-radius: 6px;
-}
-.part-tag-2 { background: var(--verde); }
-.part-name {
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
-  font-style: italic;
-  color: var(--texto-s);
-}
-
-.lesson {
-  background: #fff;
-  border: 1px solid var(--borda);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: box-shadow 0.2s, border-color 0.2s;
-}
-.lesson.locked { opacity: 0.48; }
-.lesson.active { border-color: var(--azul-m); box-shadow: 0 2px 16px rgba(31,78,121,0.1); }
-.lesson.done { border-left: 3px solid var(--verde); }
-
-.lesson-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 1rem 1.25rem;
-  cursor: pointer;
-  user-select: none;
-  transition: background 0.15s;
-}
-.lesson-header:hover { background: #FAFAF8; }
-.lesson.locked .lesson-header { cursor: default; }
-
-.num {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 500;
-  flex-shrink: 0;
-}
-.num-done { background: var(--verde-l); color: var(--verde); }
-.num-active { background: var(--azul-l); color: var(--azul); }
-.num-locked { background: var(--cinza); color: #aaa; }
-
-.lesson-info { flex: 1; min-width: 0; }
-.lesson-info h3 {
-  font-size: 14px; font-weight: 500;
-  color: var(--texto);
-  margin-bottom: 2px;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.lesson-info p { font-size: 12px; color: var(--texto-s); line-height: 1.4; }
-
-.badge {
-  font-size: 11px; font-weight: 500;
-  padding: 3px 10px; border-radius: 99px;
-  white-space: nowrap; flex-shrink: 0;
-}
-.badge-done { background: var(--verde-l); color: var(--verde); }
-.badge-active { background: var(--azul-l); color: var(--azul); }
-.badge-locked { background: var(--cinza); color: #aaa; }
-
-/* LESSON BODY */
-.lesson-body {
-  padding: 1.25rem;
-  border-top: 1px solid var(--borda);
-  animation: slideDown 0.25s ease;
-}
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.lesson-intro {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.05rem;
-  color: var(--texto-s);
-  line-height: 1.65;
-  margin-bottom: 1rem;
-}
-
-.verse {
-  background: var(--ouro-l);
-  border-left: 3px solid var(--ouro);
-  border-radius: 0 10px 10px 0;
-  padding: 0.875rem 1rem;
-  margin-bottom: 1rem;
-}
-.verse p {
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
-  font-style: italic;
-  color: #5a3e00;
-  line-height: 1.55;
-}
-.verse span {
-  display: block;
-  font-size: 11px;
-  font-family: 'Lato', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  color: var(--ouro);
-  margin-top: 5px;
-  letter-spacing: 0.04em;
-}
-
-.topics-title {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #aaa;
-  margin-bottom: 8px;
-}
-.topics {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-bottom: 1.25rem;
-}
-.topics li {
-  font-size: 13px;
-  color: var(--texto-s);
-  padding-left: 1.1rem;
-  position: relative;
-  line-height: 1.5;
-}
-.topics li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: var(--azul-m);
-}
-
-.cta-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  padding-top: 1rem;
-  border-top: 1px solid var(--borda);
-}
-.btn-form {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: var(--azul);
-  color: #fff;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  transition: background 0.15s;
-}
-.btn-form:hover { background: var(--azul-m); }
-.btn-form svg { width: 14px; height: 14px; flex-shrink: 0; }
-
-.btn-done {
-  background: none;
-  border: 1px solid var(--borda);
-  color: var(--texto-s);
-  font-size: 12px;
-  padding: 0.55rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
-}
-.btn-done:hover { background: var(--verde-l); border-color: var(--verde); color: var(--verde); }
-
-.done-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--verde);
-}
-.done-badge svg { width: 16px; height: 16px; }
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 2rem 1.5rem;
-  font-size: 12px;
-  color: #aaa;
-  border-top: 1px solid var(--borda);
-  background: #fff;
-}
-footer strong { color: var(--texto-s); font-weight: 500; }
-footer a { color: var(--azul-m); text-decoration: none; }
-
-@media (max-width: 480px) {
-  .hero { padding: 2.5rem 1.25rem 2rem; }
-  .lessons { padding: 1rem 1rem 3rem; }
-  .lesson-info h3 { white-space: normal; }
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:#F8F7F3;color:var(--texto);min-height:100vh}
+.hero{background:var(--azul);color:#fff;padding:3.5rem 1.5rem 2.5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.04)}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.03)}
+.hero-logo{width:110px;height:110px;border-radius:50%;background:#fff;padding:6px;margin:0 auto 1.25rem;display:block;box-shadow:0 4px 20px rgba(0,0,0,0.15)}
+.hero-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:1rem}
+.hero h1{font-size:clamp(2rem,6vw,2.8rem);font-weight:300;line-height:1.2;margin-bottom:0.75rem;color:#fff;letter-spacing:-0.02em}
+.hero h1 em{font-style:normal;color:#fff}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:2rem}
+.hero-verse{max-width:480px;margin:0 auto 2rem;font-size:1.05rem;font-style:italic;color:rgba(255,255,255,0.8);line-height:1.6;border-top:1px solid rgba(255,255,255,0.15);padding-top:1.25rem}
+.hero-verse span{display:block;font-size:12px;font-style:normal;color:rgba(255,255,255,0.45);margin-top:6px;letter-spacing:0.05em}
+.progress-wrap{max-width:680px;margin:0 auto;padding:1.5rem 1.5rem 0.5rem}
+.progress-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.progress-meta p{font-size:13px;color:var(--texto-s)}
+.progress-meta strong{font-size:13px;color:var(--azul);font-weight:700}
+.progress-track{height:5px;background:rgba(0,0,0,0.08);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:var(--azul);border-radius:99px;transition:width 0.5s cubic-bezier(0.4,0,0.2,1)}
+.lessons{max-width:680px;margin:0 auto;padding:1.25rem 1.5rem 4rem;display:flex;flex-direction:column;gap:10px}
+.part-divider{display:flex;align-items:baseline;gap:10px;margin:1.5rem 0 0.5rem;padding-bottom:8px;border-bottom:1px solid var(--borda)}
+.part-divider:first-child{margin-top:0}
+.part-tag{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;background:var(--azul);padding:3px 9px;border-radius:6px}
+.part-tag-2{background:var(--verde)}
+.part-name{font-size:1rem;font-style:italic;color:var(--texto-s)}
+.lesson{background:#fff;border:1px solid var(--borda);border-radius:14px;overflow:hidden;transition:box-shadow 0.2s,border-color 0.2s}
+.lesson.locked{opacity:0.48}
+.lesson.active{border-color:var(--azul-m);box-shadow:0 2px 16px rgba(62,126,148,0.12)}
+.lesson.done{border-left:3px solid var(--verde)}
+.lesson-header{display:flex;align-items:center;gap:14px;padding:1rem 1.25rem;cursor:pointer;user-select:none;transition:background 0.15s}
+.lesson-header:hover{background:#FAFAF8}
+.lesson.locked .lesson-header{cursor:default}
+.num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.num-done{background:var(--verde-l);color:var(--verde)}
+.num-active{background:var(--azul-l);color:var(--azul)}
+.num-locked{background:var(--cinza);color:#aaa}
+.lesson-info{flex:1;min-width:0}
+.lesson-info h3{font-size:14px;font-weight:700;color:var(--texto);margin-bottom:2px}
+.lesson-info p{font-size:12px;color:var(--texto-s);line-height:1.4}
+.badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px;white-space:nowrap;flex-shrink:0}
+.badge-done{background:var(--verde-l);color:var(--verde)}
+.badge-active{background:var(--azul-l);color:var(--azul)}
+.badge-locked{background:var(--cinza);color:#aaa}
+.lesson-body{padding:1.25rem;border-top:1px solid var(--borda);animation:slideDown 0.25s ease}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.lesson-intro{font-size:1.02rem;color:var(--texto-s);line-height:1.6;margin-bottom:1rem}
+.btn-read{display:inline-flex;align-items:center;gap:8px;background:var(--azul-l);color:var(--azul);border:none;border-radius:8px;padding:0.65rem 1.25rem;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;transition:background 0.15s}
+.btn-read:hover{background:#cde3ea}
+.btn-read svg{width:15px;height:15px}
+/* Conteúdo da aula */
+.content{margin-top:1.25rem;padding-top:1.25rem;border-top:1px dashed var(--borda);animation:slideDown 0.3s ease}
+.content-chaptitle{font-size:1.15rem;font-weight:700;color:var(--azul);margin:1.5rem 0 0.75rem;padding-bottom:6px;border-bottom:2px solid var(--azul-l)}
+.content-chaptitle:first-child{margin-top:0}
+.content-sub{font-size:1rem;font-weight:700;color:var(--texto);margin:1.25rem 0 0.5rem}
+.content-p{font-size:0.97rem;color:#34424a;line-height:1.7;margin-bottom:0.85rem;text-align:justify}
+.content-verse{background:var(--ouro-l);border-left:3px solid var(--ouro);border-radius:0 10px 10px 0;padding:0.875rem 1rem;margin:1rem 0}
+.content-verse p{font-size:1rem;font-style:italic;color:#5a3e00;line-height:1.55}
+.content-verse span{display:block;font-size:11px;font-style:normal;font-weight:700;color:var(--ouro);margin-top:5px;letter-spacing:0.04em}
+.content-list{list-style:none;margin:0.5rem 0 1rem;padding:0;display:flex;flex-direction:column;gap:8px}
+.content-list li{font-size:0.95rem;color:#34424a;line-height:1.6;padding-left:1.2rem;position:relative}
+.content-list li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--azul-m)}
+.content-list li strong{color:var(--texto)}
+/* CTA form */
+.cta-wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--borda)}
+.cta-label{width:100%;font-size:13px;color:var(--texto-s);margin-bottom:2px}
+.btn-form{display:inline-flex;align-items:center;gap:7px;background:var(--azul);color:#fff;text-decoration:none;font-size:13px;font-weight:700;padding:0.65rem 1.25rem;border-radius:8px;transition:background 0.15s}
+.btn-form:hover{background:var(--azul-m)}
+.btn-form svg{width:14px;height:14px;flex-shrink:0}
+.btn-done{background:none;border:1px solid var(--borda);color:var(--texto-s);font-size:12px;font-weight:700;font-family:inherit;padding:0.6rem 1rem;border-radius:8px;cursor:pointer;transition:all 0.15s}
+.btn-done:hover{background:var(--verde-l);border-color:var(--verde);color:var(--verde)}
+.done-badge{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--verde)}
+.done-badge svg{width:16px;height:16px}
+footer{text-align:center;padding:2rem 1.5rem;font-size:12px;color:#aaa;border-top:1px solid var(--borda);background:#fff}
+footer strong{color:var(--texto-s);font-weight:700}
+footer a{color:var(--azul-m);text-decoration:none}
+@media(max-width:480px){.hero{padding:2.5rem 1.25rem 2rem}.lessons{padding:1rem 1rem 3rem}.content-p{text-align:left}}
 </style>
 </head>
 <body>
-
 <div class="hero">
   <img src="logo.png" alt="Assembleia de Deus – Miranda do Corvo, Poiares & Arganil" class="hero-logo">
   <p class="hero-label">Assembleia de Deus · Miranda do Corvo, Poiares &amp; Arganil</p>
   <h1>Curso de preparação<br><em>para o batismo</em></h1>
   <p class="hero-sub">13 aulas · Parte I: Doutrina &nbsp;·&nbsp; Parte II: Integração</p>
-  <div class="hero-verse">
-    "Ide, portanto, fazei discípulos de todas as nações, baptizando-os em nome do Pai, e do Filho, e do Espírito Santo."
-    <span>Mateus 28:19</span>
-  </div>
+  <div class="hero-verse">"Ide, portanto, fazei discípulos de todas as nações, baptizando-os em nome do Pai, e do Filho, e do Espírito Santo."<span>Mateus 28:19</span></div>
 </div>
-
 <div class="progress-wrap">
-  <div class="progress-meta">
-    <p>O teu progresso</p>
-    <strong id="prog-label">0 de 13 aulas concluídas</strong>
-  </div>
-  <div class="progress-track">
-    <div class="progress-fill" id="prog-bar" style="width:0%"></div>
-  </div>
+  <div class="progress-meta"><p>O teu progresso</p><strong id="prog-label">0 de 13 aulas concluídas</strong></div>
+  <div class="progress-track"><div class="progress-fill" id="prog-bar" style="width:0%"></div></div>
 </div>
-
 <div class="lessons" id="lessons"></div>
-
 <footer>
   <strong>Assembleia de Deus – Miranda do Corvo, Poiares &amp; Arganil</strong><br>
   Rua Dom Afonso Henriques, Nº25 · <a href="mailto:geral.admiranda@gmail.com">geral.admiranda@gmail.com</a> · Tlm: 910 009 776<br>
   <span style="margin-top:6px;display:block">Parte da <a href="https://www.cadp.pt" target="_blank">Convenção das Assembleias de Deus em Portugal (CADP)</a></span>
+  <span style="margin-top:4px;display:block">Consulta a <a href="https://cadp.pt/declaracao-de-fe/" target="_blank">Declaração de Fé da CADP</a></span>
 </footer>
-
 <script>
 const LESSONS = [
   {
-    num:1,
+    num:1, part:1,
     title:"O que é a conversão?",
     desc:"Pecado, necessidade de salvação e o novo nascimento em Cristo",
-    verse:"Em verdade, em verdade te digo que aquele que não nascer de novo não pode ver o reino de Deus.",
-    ref:"João 3:3",
-    topics:[
-      "A queda do homem e as consequências do pecado (Romanos 3:23)",
-      "O que significa converter-se de coração",
-      "Arrependimento, fé, confissão e novo nascimento",
-      "2 Coríntios 5:17 – nova criatura em Cristo"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSeaJJC5UdfNzn4z3oxAjgyuBv6RUVYmIB8OJQimvWeX8ElTKg/viewform"
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSeaJJC5UdfNzn4z3oxAjgyuBv6RUVYmIB8OJQimvWeX8ElTKg/viewform",
+    content:`<div class="content-verse"><p>“Em verdade, em verdade te digo que aquele que não nascer de novo não pode ver o reino de Deus.”</p><span>João 3:3</span></div><p class="content-p">Antes de qualquer passo no caminho da fé, é fundamental compreender o que significa ser convertido. A conversão não é um acto religioso exterior nem uma mera decisão emocional passageira, mas uma transformação interior profunda, operada pelo Espírito Santo no coração de quem se rende a Deus com sinceridade. É o momento decisivo em que uma pessoa passa das trevas para a luz, da morte espiritual para a vida eterna, do domínio do pecado para a liberdade em Cristo (Colossenses 1:13-14). A Bíblia descreve este acontecimento como “nascer de novo” (João 3:3), uma expressão que revela a radicalidade da mudança: não uma reforma superficial, mas uma nova criação (2 Coríntios 5:17).</p><h4 class="content-sub">O Pecado e a Necessidade de Salvação</h4><p class="content-p">A Bíblia ensina com clareza que todos os seres humanos pecaram e estão separados de Deus: “Porquanto todos pecaram e destituídos estão da glória de Deus” (Romanos 3:23). O pecado não é apenas um erro moral ou uma fraqueza de carácter – é uma condição espiritual de separação profunda de Deus que afecta toda a humanidade desde a queda no Jardim do Éden (Génesis 3). Esta separação não pode ser resolvida por esforço humano, religião, rituais, boas obras ou filosofia. A Escritura afirma: “Porque o salário do pecado é a morte, mas o dom gratuito de Deus é a vida eterna em Cristo Jesus, nosso Senhor” (Romanos 6:23). Apenas a graça redentora de Deus, manifestada em Jesus Cristo, pode verdadeiramente resolver o problema do pecado e restaurar a comunhão com o Criador.</p><ul class="content-list"><li>A queda do homem: O Homem foi criado à imagem e semelhança de Deus (Génesis 1:27), para viver em comunhão perfeita com o Criador. Pela desobediência voluntária, essa comunhão foi quebrada (Génesis 3:6-7), introduzindo o pecado, a dor e a morte na experiência humana.</li><li>As consequências do pecado: Separação de Deus, morte espiritual, e necessidade urgente de redenção e reconciliação. “Mas as vossas iniquidades fizeram separação entre vós e o vosso Deus” (Isaías 59:2).</li><li>A graça soberana de Deus: Na Sua misericórdia infinita e amor imerecido, Deus providenciou o único caminho de salvação – o sacrifício de Jesus Cristo na cruz do Calvário, seguido da Sua gloriosa ressurreição ao terceiro dia. “Porque Deus amou o mundo de tal maneira que deu o seu Filho unigénito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna” (João 3:16).</li></ul><h4 class="content-sub">O Que Significa Converter-se</h4><p class="content-p">Converter-se é muito mais do que frequentar uma igreja, mudar hábitos de vida ou adoptar uma nova religião. Significa voltar-se de todo o coração para Deus, com arrependimento genuíno, abandonando o caminho do pecado e confiando plenamente em Jesus Cristo como único Senhor e Salvador. É uma decisão que envolve a vontade, o intelecto e as emoções, e que produz uma transformação real, profunda e progressiva na vida do crente. A conversão genuína sempre produz frutos visíveis: “Assim, qualquer árvore boa produz bons frutos” (Mateus 7:17).</p><ul class="content-list"><li>Arrependimento (<em>metanoia</em>): Reconhecer o pecado com honestidade, sentir genuína tristeza pela separação de Deus, e voltar-se dele com determinação. “Arrependei-vos, pois, e convertei-vos, para que os vossos pecados sejam apagados” (Actos 3:19).</li><li>Fé (pistis): Crer de forma firme e pessoal que Jesus Cristo morreu pelos nossos pecados, foi sepultado e ressuscitou ao terceiro dia, sendo o único mediador entre Deus e os homens (1 Timóteo 2:5; 1 Coríntios 15:3-4).</li><li>Confissão: Declarar Jesus como Senhor e Salvador da nossa vida, não apenas em palavras, mas em toda a conduta e relações. “Se confessares com a tua boca que Jesus é Senhor, e creres no teu coração que Deus o ressuscitou dos mortos, serás salvo” (Romanos 10:9).</li><li>Novo nascimento: Receber a vida nova pelo Espírito Santo, que passa a habitar no crente como sinal e garantia da salvação. “O Espírito mesmo testifica com o nosso espírito que somos filhos de Deus” (Romanos 8:16).</li></ul><div class="content-verse"><p>“Se alguém está em Cristo, é uma nova criatura; as coisas antigas já passaram; eis que se fizeram novas.”</p><span>2 Coríntios 5:17</span></div>`
   },
   {
-    num:2,
+    num:2, part:1,
     title:"A declaração de fé da CADP",
     desc:"Fundamentos doutrinários das Assembleias de Deus em Portugal",
-    verse:"Toda a Escritura é divinamente inspirada, e proveitosa para ensinar, para redarguir, para corrigir, para instruir em justiça.",
-    ref:"2 Timóteo 3:16",
-    topics:[
-      "A Santíssima Trindade – Pai, Filho e Espírito Santo",
-      "As Sagradas Escrituras como única autoridade suprema",
-      "O homem, o pecado e a salvação exclusivamente pela graça",
-      "A Segunda Vinda de Cristo e o Juízo Final"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSfHoummQziayEnZvDLoSHSVAGJu4EHtRVvqPvNhnsVgFPpJoA/viewform"
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSfHoummQziayEnZvDLoSHSVAGJu4EHtRVvqPvNhnsVgFPpJoA/viewform",
+    content:`<p class="content-p">A Assembleia de Deus de Miranda do Corvo segue os fundamentos doutrinários estabelecidos pela Convenção das Assembleias de Deus em Portugal (CADP). O candidato ao baptismo deve conhecer, compreender e acolher estes fundamentos como base sólida da sua vida cristã. Não se trata de simples informação teológica académica, mas de verdades reveladas por Deus na Sua Palavra que moldam a identidade, a adoração, o testemunho e toda a conduta do crente. “Toda a Escritura é divinamente inspirada, e proveitosa para ensinar, para redarguir, para corrigir, para instruir em justiça” (2 Timóteo 3:16).</p><h4 class="content-sub">A Trindade</h4><p class="content-p">Cremos na existência de um único Deus eterno, pessoal, criador e sustentador de todas as coisas, eternamente existente em três pessoas distintas: Pai, Filho e Espírito Santo. Embora distintas nas suas funções e manifestações ao longo da história da redenção, as três pessoas são iguais em divindade, em santidade e em todos os Seus atributos perfeitos. Esta verdade fundacional distingue o cristianismo bíblico de qualquer outra fé ou religião. A Trindade não é uma invenção teológica humana, mas um termo que sintetiza algo da revelação progressiva de Deus, acerca de Si mesmo, ao longo das Escrituras, plenamente manifesta no Novo Testamento. “Ide, portanto, fazei discípulos de todas as nações, baptizando-os em nome do Pai, e do Filho, e do Espírito Santo” (Mateus 28:19).</p><ul class="content-list"><li>Deus Pai: Espírito eterno, criador de todas as coisas (Génesis 1:1), amor em essência (1 João 4:8). Jamais visto pelo homem na plenitude da Sua glória (João 1:18), mas revelado através do Filho e do Espírito Santo. É o Pai amoroso e soberano que cuida de cada filho Seu (Mateus 6:26).</li><li>Jesus Cristo: Filho unigénito de Deus, igual ao Pai em eternidade e divindade. Nasceu da virgem Maria pelo poder do Espírito Santo (Lucas 1:35), viveu uma vida inteiramente sem pecado (Hebreus 4:15), morreu na cruz pelos pecados da humanidade (1 Pedro 2:24), ressuscitou corporalmente ao terceiro dia (1 Coríntios 15:4), ascendeu ao céu à direita do Pai (Marcos 16:19) e voltará em glória e poder (Apocalipse 19:11-16).</li><li>Espírito Santo: Igual ao Pai e ao Filho em divindade e eternidade. Opera a convicção de pecado (João 16:8), a conversão e regeneração (João 3:5-6), a santificação progressiva do crente (2 Tessalonicenses 2:13), e distribui os dons espirituais conforme a Sua soberana vontade (1 Coríntios 12:11). É o Consolador e Advogado que Jesus prometeu (João 14:16-17).</li></ul><h4 class="content-sub">As Sagradas Escrituras</h4><p class="content-p">Cremos que a Bíblia, composta pelos 66 livros do Antigo e do Novo Testamento, é a Palavra de Deus divinamente inspirada, infalível e inerrante em tudo o que declara. “Toda a Escritura é divinamente inspirada” (2 Timóteo 3:16). A inspiração bíblica não significa que Deus ditou mecanicamente cada palavra, mas que o Espírito Santo superintendeu os autores humanos de tal forma que eles escreveram exactamente o que Deus queria comunicar, preservando as suas personalidades e estilos, mas garantindo a veracidade da mensagem. A Bíblia é a suprema e única autoridade em matéria de fé, doutrina e prática cristã – “lâmpada para os meus pés e luz para o meu caminho” (Salmos 119:105). Nenhuma tradição, experiência pessoal, sonho ou revelação pode ter autoridade superior ou igual às Escrituras.</p><h4 class="content-sub">O Homem e a Salvação</h4><p class="content-p">Cremos que o Homem foi criado por Deus à Sua imagem e semelhança (Génesis 1:26-27), mas que, pelo pecado, caiu e necessita urgentemente de redenção. A salvação é exclusivamente fruto da graça soberana de Deus, recebida mediante a fé em Jesus Cristo. “Porque pela graça sois salvos, por meio da fé; e isto não vem de vós; é dom de Deus. Não vem das obras, para que ninguém se glorie” (Efésios 2:8-9). A salvação não pode ser conquistada por méritos humanos, mas pode ser perdida se o crente, voluntariamente, se afastar de Deus ou abandonar a sua fé em desobediência deliberada e prolongada. A salvação plena engloba justificação pela fé, regeneração pelo Espírito e santificação progressiva ao longo da vida cristã.</p><h4 class="content-sub">A Segunda Vinda de Cristo</h4><p class="content-p">Cremos na segunda vinda pessoal, visível e gloriosa de Cristo em duas fases distintas. Na primeira fase – o arrebatamento da Igreja – os crentes fiéis serão ressuscitados ou transformados e sairão ao encontro do Senhor no ar (1 Tessalonicenses 4:16-17). Na segunda fase, após a Grande Tribulação, Cristo voltará com os Seus santos para estabelecer o Seu reino milenar na terra (Apocalipse 20:1-6). Esta esperança viva molda a forma como o crente vive, testemunha e se relaciona com o mundo: “Todo aquele que tem esta esperança nele, purifica-se a si mesmo” (1 João 3:3).</p><h4 class="content-sub">A Ressurreição e o Juízo Final</h4><p class="content-p">Cremos na ressurreição corporal de todos os mortos, tanto dos salvos como dos perdidos, em dois momentos distintos. Os salvos receberão corpos glorificados e viverão eternamente na presença de Deus. Os que rejeitaram a Cristo enfrentarão o juízo eterno (Apocalipse 20:11-15). Cremos no estado eterno renovado: “Vi um novo céu e uma nova Terra” (Apocalipse 21:1). A realidade do juízo final e da vida eterna é uma das motivações mais poderosas para a evangelização e para uma vida santa.</p>`
   },
   {
-    num:3,
+    num:3, part:1,
     title:"O batismo nas águas",
     desc:"Significado, modo bíblico e preparação para o baptismo",
-    verse:"Fomos, pois, sepultados com Ele pelo batismo na morte, para que andemos em novidade de vida.",
-    ref:"Romanos 6:4",
-    topics:[
-      "O batismo por imersão total – modo bíblico e apostólico",
-      "O que o batismo simboliza: morte, sepultamento e ressurreição",
-      "Quem pode ser baptizado e as condições bíblicas",
-      "Como se preparar para o dia do batismo"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSc-OMDsbdH7O7X06Ixly_rfAYIpyUfEo-mwFs-Vo_SC62GCIQ/viewform"
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSc-OMDsbdH7O7X06Ixly_rfAYIpyUfEo-mwFs-Vo_SC62GCIQ/viewform",
+    content:`<div class="content-verse"><p>“Ide, portanto, fazei discípulos de todas as nações, baptizando-os em nome do Pai, e do Filho, e do Espírito Santo.”</p><span>Mateus 28:19</span></div><p class="content-p">O baptismo nas águas é um dos momentos mais sagrados e significativos da vida cristã. É o passo público de obediência que confirma exteriormente a fé interior já vivida, e representa a plena entrada na comunhão da igreja local. Não é o baptismo que salva – a salvação é pela graça, mediante a fé (Efésios 2:8-9) – mas é o sinal visível, ordenado pelo próprio Cristo, de uma transformação já operada por Deus no coração do crente. O ladrão na cruz foi salvo sem ser baptizado (Lucas 23:43), mas todo aquele que crê e não tem impedimento deve ser baptizado em obediência ao mandamento de Jesus. É uma questão de amor e fidelidade a Cristo: “Se me amais, guardarei os meus mandamentos” (João 14:15).</p><h4 class="content-sub">O Que é o Baptismo nas Águas</h4><p class="content-p">Cremos no Baptismo nas Águas efectuado por imersão total em água, em nome do Pai, do Filho e do Espírito Santo, conforme o mandamento explícito de Cristo (Mateus 28:19) e a prática inequívoca da Igreja primitiva (Actos 2:38; 8:38; 10:48). A palavra grega baptizō significa “mergulhar”, “imergir”, confirmando que a imersão total é o modo bíblico correcto. O baptismo por aspersão, embora praticado por outras denominações, não reflecte com exactidão o simbolismo da morte, sepultamento e ressurreição descrito em Romanos 6:3-4. A nossa prática, portanto, é fiel à tradição apostólica e ao modelo do próprio Jesus, baptizado por João no Rio Jordão (Mateus 3:13-17).</p><ul class="content-list"><li>Um acto de obediência ao mandamento explícito de Jesus Cristo (Mateus 28:19; Marcos 16:16).</li><li>O testemunho público da nossa morte ao pecado e ressurreição para uma vida nova em Cristo. “Porque somos sepultados com ele pelo baptismo na morte, para que como Cristo ressuscitou dos mortos pela glória do Pai, assim também nós andemos em novidade de vida” (Romanos 6:4).</li><li>A porta formal de entrada para a membresia da igreja local e para a participação regular na Ceia do Senhor, em plena comunhão com os irmãos.</li><li>Um símbolo poderoso e necessário – não salva por si só, mas confirma, proclama e celebra a salvação já recebida pela fé em Cristo Jesus.</li></ul><h4 class="content-sub">Quem Pode ser Baptizado</h4><p class="content-p">Segundo a Declaração de Fé da CADP, o baptismo só deve ser ministrado a pessoas realmente convertidas e nascidas de novo, que evidenciem de forma inequívoca os frutos da nova vida em Cristo (Gálatas 5:22-23), e que não se encontrem em situação irregular no matrimónio ou com situações pendentes que contrariem os princípios bíblicos. A CADP não pratica o baptismo de crianças ou bebés, uma vez que o baptismo pressupõe fé pessoal consciente, arrependimento genuíno e decisão voluntária – algo que uma criança não tem capacidade de exercer. O baptismo de crianças de pais crentes é substituído pela dedicação de crianças, um acto de consagração a Deus e compromisso dos pais de as educar na fé.</p><h4 class="content-sub">O Baptismo por Imersão – Simbolismo</h4><p class="content-p">A imersão total em água é rica em simbolismo bíblico que deve ser compreendido e abraçado pelo candidato. Não é um ritual mágico ou um sacramento que confere graça automaticamente, mas uma declaração simbólica e pública de realidades espirituais já vividas interiormente. O candidato ao baptismo submerge nas águas como quem morre e é sepultado com Cristo, e emerge das águas como quem ressuscita para uma vida completamente nova. É ao mesmo tempo o fim de uma vida e o início de outra – a vida em Cristo, escondida com Ele em Deus (Colossenses 3:3).</p><div class="content-verse"><p>“Fomos, pois, sepultados com Ele pelo baptismo na morte, para que, assim como Cristo ressuscitou dos mortos pela glória do Pai, assim também nós andemos em novidade de vida.”</p><span>Romanos 6:4</span></div>`
   },
   {
-    num:4,
+    num:4, part:1,
     title:"A Ceia do Senhor",
     desc:"O memorial da morte e ressurreição de Cristo",
-    verse:"Fazei isto em memória de mim.",
-    ref:"1 Coríntios 11:24",
-    topics:[
-      "O significado profundo do pão e do cálice",
-      "Quem pode participar na Ceia do Senhor",
-      "Exame pessoal antes de participar (1 Coríntios 11:28)",
-      "A Ceia como proclamação da esperança da vinda do Senhor"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSdSR7W0cMn8uk_DDGh85cqypEJvTbn3QnkysI3PbkPtnZWONw/viewform"
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSdSR7W0cMn8uk_DDGh85cqypEJvTbn3QnkysI3PbkPtnZWONw/viewform",
+    content:`<div class="content-verse"><p>“Porque eu recebi do Senhor o que também vos ensinei: que o Senhor Jesus, na noite em que foi traído, tomou o pão; e, tendo dado graças, o partiu, e disse: Isto é o meu corpo que é dado por vós; fazei isto em memória de mim.”</p><span>1 Coríntios 11:23-24</span></div><p class="content-p">Cremos na Ceia do Senhor como um memorial  da morte expiatória, da ressurreição gloriosa e da segunda vinda esperada de Cristo. É um momento de profunda comunhão com Deus e com os irmãos em fé, de exame pessoal rigoroso e de proclamação pública da obra redentora de Jesus. A Ceia foi instituída pelo próprio Senhor Jesus na noite antes da Sua crucificação (Mateus 26:26-29; Marcos 14:22-25; Lucas 22:19-20), e a Igreja tem celebrado este memorial ininterruptamente desde então, como acto de obediência e esperança. Deve ser ministrada somente aos crentes que foram biblicamente baptizados por imersão e que vivem fielmente a sua fé em santidade e comunhão com a Igreja. “Portanto, qualquer que comer este pão ou beber o cálice do Senhor indignamente, será culpado do corpo e do sangue do Senhor” (1 Coríntios 11:27).</p><h4 class="content-sub">Significado Profundo da Ceia</h4><p class="content-p">A Ceia do Senhor não é um ritual vazio ou uma mera formalidade religiosa. É um momento carregado de profundo significado espiritual, que nos recorda o preço incalculável da nossa salvação, renova a nossa fé e aguça a esperança da vinda do Senhor. Participar na Ceia com fé genuína e coração examinado é um acto de adoração, de memória e de proclamação.</p><ul class="content-list"><li>O pão: Representa o corpo de Cristo partido por nós. Jesus, o pão da vida (João 6:35), entregou voluntariamente o Seu corpo sem pecado para que o nosso pudesse ser salvo, curado e transformado. “Ele mesmo levou em seu corpo os nossos pecados sobre o madeiro” (1 Pedro 2:24).</li><li>O cálice: Representa o sangue precioso de Cristo derramado pela remissão dos nossos pecados, selando a Nova e Eterna Aliança entre Deus e os Seus filhos. “Este cálice é a nova aliança no meu sangue” (Lucas 22:20).</li><li>Memorial e proclamação: Ao participar com fé, proclamamos solenemente a morte do Senhor até que Ele venha (1 Coríntios 11:26). É um acto simultaneamente de memória e de esperança escatológica.</li><li>Exame pessoal: Antes de participar, o crente deve examinar-se a si próprio (1 Coríntios 11:28), confessando qualquer pecado, pedindo perdão e reconciliando-se com Deus e com os irmãos. Nenhum crente deve aproximar-se da Ceia com pecado não confessado ou com conflito não resolvido com um irmão (Mateus 5:23-24).</li></ul>`
   },
   {
-    num:5,
+    num:5, part:1,
     title:"O batismo no Espírito Santo",
     desc:"A plenitude do Espírito Santo e os dons espirituais",
-    verse:"Recebereis poder ao descer sobre vós o Espírito Santo, e ser-me-eis testemunhas.",
-    ref:"Actos 1:8",
-    topics:[
-      "O Batismo no Espírito Santo – distinto da conversão",
-      "A evidência inicial: falar em outras línguas (Actos 2:4)",
-      "Os dons espirituais de 1 Coríntios 12 e a sua actualidade",
-      "A cura divina como fruto da obra expiatória de Cristo"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSfoSuwATFXdJ7So9DwGT0xoAQu1TITLmGjbTIVXBv58iXtzgg/viewform"
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSfoSuwATFXdJ7So9DwGT0xoAQu1TITLmGjbTIVXBv58iXtzgg/viewform",
+    content:`<div class="content-verse"><p>“E todos foram cheios do Espírito Santo, e começaram a falar noutras línguas, conforme o Espírito Santo lhes concedia que falassem.”</p><span>Actos 2:4</span></div><p class="content-p">Uma das marcas mais distintivas e preciosas do movimento pentecostal e das Assembleias de Deus em particular é a crença viva e a experiência real do Baptismo no Espírito Santo. Não se trata de uma doutrina abstracta reservada a uma elite espiritual, mas de uma experiência pessoal e transformadora disponível para todo o crente que a busca de coração. Jesus mesmo prometeu: “Recebereis poder ao descer sobre vós o Espírito Santo, e ser-me-eis testemunhas” (Actos 1:8). O Baptismo no Espírito Santo capacita o crente para o serviço e o testemunho de Cristo com poder sobrenatural, aprofunda a intimidade com Deus e activa os dons espirituais para o ministério na Igreja e no mundo.</p><h4 class="content-sub">O Que Cremos sobre o Baptismo no Espírito Santo</h4><p class="content-p">Cremos no Baptismo no Espírito Santo como uma experiência espiritual subsequente e distinta da conversão (Actos 8:14-17; 19:1-6), disponível para todos os crentes que a desejam sinceramente. Esta experiência não é idêntica à regeneração – todo o crente recebe o Espírito Santo no momento da conversão (Romanos 8:9) – mas é uma plenitude adicional e específica do Espírito Santo para poder e serviço. Na Sua plenitude, o Espírito Santo capacita o crente para ser testemunha eficaz de Cristo (Actos 1:8) e para viver a vida cristã com poder, fruto e dons espirituais em plena operação.</p><ul class="content-list"><li>A evidência inicial do Baptismo no Espírito Santo é falar em outras línguas (glossolalia), conforme aconteceu no dia de Pentecostes (Actos 2:4) e em outros episódios do livro dos Actos (Actos 10:44-46; 19:6).</li><li>A prática contínua de falar em línguas serve para edificação espiritual pessoal e comunhão íntima com Deus: “O que fala em língua desconhecida a si mesmo se edifica” (1 Coríntios 14:4).</li><li>Cremos na plena actualidade de todos os dons espirituais listados em 1 Coríntios 12, distribuídos pelo Espírito Santo conforme a Sua soberana vontade e as necessidades da Igreja.</li></ul><h4 class="content-sub">Os Dons do Espírito Santo</h4><p class="content-p">Cremos que os dons espirituais não cessaram com a morte dos apóstolos, mas que continuam a ser distribuídos pelo Espírito Santo à Igreja hoje, para o seu crescimento, edificação e ministério eficaz no mundo. “Segui o amor, e procurai os dons espirituais” (1 Coríntios 14:1). Cada membro da Igreja recebe pelo menos um dom do Espírito (1 Pedro 4:10), e é responsável por desenvolvê-lo e usá-lo para a glória de Deus e edificação dos irmãos. Entre os principais dons referidos nas Escrituras, podemos destacar, a título de exemplo:</p><ul class="content-list"><li>Dons de revelação: palavra de sabedoria, palavra de conhecimento, discernimento de espíritos – para iluminar, orientar e proteger a Igreja.</li><li>Dons de poder: fé especial, curas divinas, operação de milagres – para confirmar o Evangelho e glorificar a Deus.</li><li>Dons de expressão: profecia, línguas e interpretação de línguas – para edificar, consolar, exortar e confirmar a comunidade cristã (1 Coríntios 14:3).</li></ul><h4 class="content-sub">A Cura Divina</h4><p class="content-p">Cremos firmemente na actualidade da Cura Divina como fruto da obra expiatória de Cristo no Calvário. A Escritura afirma: “Pela sua ferida fomos sarados” (Isaías 53:5; 1 Pedro 2:24). Deus cura hoje como curou na Bíblia, porque Ele é o mesmo ontem, hoje e para sempre (Hebreus 13:8). Esta cura é recebida pela oração da fé (Tiago 5:14-15), pela unção com óleo pelos presbíteros da Igreja, e pelos dons espirituais de curas, sempre dependendo da soberana vontade de Deus e para a Sua glória. A cura divina não substitui a medicina – Deus pode usar os dois meios – mas é uma realidade espiritual que testifica do poder ressurrecto de Jesus Cristo.</p>`
   },
   {
-    num:6,
+    num:6, part:1,
     title:"A vida cristã e a santificação",
     desc:"Crescimento espiritual, disciplinas e separação do mundo",
-    verse:"Sede santos, porque eu sou santo.",
-    ref:"1 Pedro 1:16",
-    topics:[
-      "Santificação posicional e progressiva",
-      "Separação do mundo e vida simples (Romanos 12:2)",
-      "As disciplinas espirituais essenciais do crente",
-      "Frutos visíveis da santificação na vida quotidiana"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSeC4l2jKzBmrI2nevISuY3TYAOJjsv12i8lnp2wuTpE8Fm-FQ/viewform"
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSeC4l2jKzBmrI2nevISuY3TYAOJjsv12i8lnp2wuTpE8Fm-FQ/viewform",
+    content:`<div class="content-verse"><p>“Sede santos, porque eu sou santo.”</p><span>1 Pedro 1:16</span></div><p class="content-p">A conversão é o início glorioso de uma vida nova, mas não o destino final. É necessário crescer, amadurecer e desenvolver o carácter de Cristo através da santificação – um processo contínuo e progressivo que envolve disciplina, obediência e rendição diária ao Espírito Santo. A santificação não é um fardo legalista, mas a expressão natural e gozosa de um coração que ama verdadeiramente a Deus e deseja agradá-Lo. “Porque somos feitos da sua obra, criados em Cristo Jesus para as boas obras, as quais Deus preparou para que andássemos nelas” (Efésios 2:10). A meta da santificação é a conformidade plena à imagem de Cristo (Romanos 8:29).</p><h4 class="content-sub">O Que é a Santificação</h4><p class="content-p">A Declaração de Fé da CADP ensina que a santificação tem uma dimensão instantânea e posicional, operada no momento da conversão quando o crente é declarado santo perante Deus pela obra de Cristo (1 Coríntios 6:11), e uma dimensão progressiva e experiencial, que continua ao longo de toda a vida cristã através da cooperação do crente com o Espírito Santo. É um processo de crescente conformidade à imagem de Cristo, impulsionado pelo Espírito Santo, pela obediência à Palavra de Deus, pela oração e pela disciplina espiritual. “A santificação, sem a qual ninguém verá o Senhor” (Hebreus 12:14) é, portanto, não apenas um ideal, mas uma necessidade espiritual. Esta santificação manifesta-se, entre outros aspectos, das seguintes formas:</p><ul class="content-list"><li>Separação do mundo: Viver de forma distinta das práticas e valores do mundo que contradizem a Palavra de Deus. “Não vos conformeis com este século, mas transformai-vos pela renovação do vosso entendimento” (Romanos 12:2).</li><li>Vida simples e transparente, isenta de vaidades, extravagâncias ou comportamentos que desonrem o nome de Cristo ou causem tropeço ao próximo.</li><li>Crescimento progressivo na semelhança de Cristo em carácter, atitudes, palavras, pensamentos e todas as relações humanas.</li><li>Clareza bíblica na diferença entre os sexos, na pureza sexual e na integridade de toda a conduta pública e privada.</li></ul><h4 class="content-sub">Disciplinas Espirituais</h4><p class="content-p">Para crescer na fé e na santificação, o novo crente deve cultivar práticas espirituais regulares que alimentam a vida interior, fortalecem a relação com Deus e desenvolvem o carácter cristão. Estas não são obrigações legalísticas que conquistam a salvação, mas expressões de amor e dependência do Criador, meios de graça pelos quais Deus nos transforma e fortalece.</p><ul class="content-list"><li>Leitura e meditação diária da Bíblia: “Meditarás nele de dia e de noite” (Josué 1:8). A Palavra de Deus é o alimento espiritual indispensável para o crescimento e a resistência ao pecado.</li><li>Oração regular e comunhão íntima com Deus: “Orai sem cessar” (1 Tessalonicenses 5:17). A oração não é uma técnica religiosa, mas uma conversa viva com o Pai amoroso que nos ouve e responde.</li><li>Participação regular nos cultos, reuniões de oração e actividades da igreja. “Não deixando de congregar-nos” (Hebreus 10:25).</li><li>Dízimos e ofertas como acto de fidelidade, adoração e dependência de Deus (ver Capítulo 7 – Mordomia Cristã).</li><li>Testemunho corajoso e evangelismo natural no ambiente familiar, laboral e social. “Sede sempre prontos para responder a qualquer que vos pedir razão da esperança que há em vós” (1 Pedro 3:15).</li><li>Serviço activo nos ministérios da Igreja, usando os dons e talentos que Deus concedeu a cada crente para o bem de todos (1 Pedro 4:10).</li></ul>`
   },
   {
-    num:7,
+    num:7, part:1,
     title:"Dízimos, ofertas e mordomia cristã",
     desc:"Fidelidade financeira e gestão dos recursos que Deus confiou",
-    verse:"Honra ao Senhor com os teus bens e com as primícias de todos os teus lucros.",
-    ref:"Provérbios 3:9",
-    topics:[
-      "O dízimo – fundamento bíblico desde Génesis ao Novo Testamento",
-      "As ofertas como acto voluntário de adoração e gratidão",
-      "A promessa de Malaquias 3:10 e a fidelidade de Deus",
-      "Mordomia cristã: tempo, talentos, saúde e posses"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSeaMG7zajgQM-n6rQmUAG9Br0PpM5G_2XsHXNDOUBcu50siLQ/viewform"
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSeaMG7zajgQM-n6rQmUAG9Br0PpM5G_2XsHXNDOUBcu50siLQ/viewform",
+    content:`<div class="content-verse"><p>“Trazei todos os dízimos à casa do tesouro, para que haja mantimento na minha casa, e provai-me nisto, diz o Senhor dos Exércitos, se eu não vos abrir as janelas do céu e não derramar sobre vós bênção sem medida.”</p><span>Malaquias 3:10</span></div><p class="content-p">A mordomia cristã é a compreensão bíblica fundamental de que tudo o que possuímos pertence a Deus, e que somos apenas administradores temporários dos recursos que Ele nos confiou. “Do Senhor é a terra e a sua plenitude, o mundo e os que nele habitam” (Salmos 24:1). Os dízimos e as ofertas não são uma obrigação religiosa constrangedora ou uma forma de financiar as despesas da Igreja: são uma expressão concreta e regular de fé, gratidão e adoração a Deus. Dar é um privilégio do filho de Deus, um acto que reflecte o coração generoso do Pai que “deu o seu Filho unigénito” (João 3:16). Quando um crente dá com alegria e fidelidade, declara praticamente que Deus é Senhor de toda a sua vida, incluindo das suas finanças.</p><h4 class="content-sub">O Dízimo – Fundamento Bíblico e Prática</h4><p class="content-p">O princípio do dízimo – dar um décimo (10%) dos rendimentos a Deus – está profundamente enraizado nas Escrituras, desde o Antigo ao Novo Testamento, e antecede a própria Lei de Moisés. Abraão, o pai da fé, deu o dízimo ao sacerdote Melquisedeque séculos antes da Lei (Génesis 14:20; Hebreus 7:4-6). Jacob fez um voto de dízimos a Deus após a visão de Betel (Génesis 28:22). No tempo de Moisés, o dízimo foi codificado na Lei, destinando-se ao sustento dos levitas, ao ministério do templo e ao cuidado dos pobres e estrangeiros (Números 18:21-24; Deuteronómio 14:28-29).</p><p class="content-p">No Novo Testamento, Jesus afirmou explicitamente a prática do dízimo sem a abolir: “Isto devia fazer-se sem omitir aquilo” (Mateus 23:23). O apóstolo Paulo, ao instruir as igrejas sobre generosidade, escreve: “Aquele que semeia pouco, pouco também ceifará; e o que semeia em abundância, em abundância também ceifará” (2 Coríntios 9:6). A bênção de Deus está intimamente associada à fidelidade na mordomia, e Malaquias 3:10 contém a única passagem bíblica onde Deus convida os Seus filhos a “prová-Lo” com a promessa explícita de bênçãos imensas.</p><ul class="content-list"><li>O dízimo é 10% dos rendimentos (habitualmente calculado sobre o rendimento líquido), entregue regularmente e prioritariamente à igreja local onde o crente é membro activo.</li><li>Não é um pagamento a Deus nem uma negociação espiritual: é o reconhecimento prático de que tudo é Dele e que Ele merece o primeiro lugar em todos os nossos recursos (Provérbios 3:9-10).</li><li>A fidelidade no dízimo é uma expressão de confiança radical em Deus como provedor soberano e fiel de todas as nossas necessidades (Filipenses 4:19).</li><li>O dízimo não é cumprido por medo do castigo, mas em resposta ao amor e às bênçãos já recebidas de um Deus generoso e fiel.</li></ul><h4 class="content-sub">As Ofertas – Além do Dízimo</h4><p class="content-p">Além do dízimo, que é a base bíblica da contribuição financeira do crente, as ofertas são contribuições voluntárias e adicionais que expressam gratidão especial, resposta a uma necessidade específica ou comprometimento com a obra de Deus em determinada área. As ofertas podem destinar-se a missões nacionais e internacionais, a obras sociais da Igreja, ao fundo de necessidades da congregação, a projectos especiais de construção ou equipamento, ou a causas humanitárias cristãs. O apóstolo Paulo, ao instruir a Igreja de Corinto sobre as colectas para os irmãos necessitados de Jerusalém, estabelece princípios eternos de generosidade cristã: “Cada um contribua segundo propôs no seu coração, não com tristeza, nem por obrigação; porque Deus ama quem dá com alegria” (2 Coríntios 9:7). A oferta agradável a Deus não é apenas o valor entregue, mas primariamente a atitude do coração de quem dá.</p><ul class="content-list"><li>As ofertas são voluntárias, decididas em oração e com alegria, sem pressão ou constrangimento por parte de qualquer pessoa ou liderança.</li><li>Podem ser entregues em momentos de culto, por transferência bancária ou por outras formas acordadas com a liderança da Igreja.</li><li>Oferecer a Deus é um acto de adoração: quando colocamos a nossa oferta, declaramos praticamente que Ele é Senhor das nossas finanças e que confiamos na Sua provisão fiel.</li><li>A liderança da Igreja presta contas financeiras regulares à congregação, garantindo transparência total na gestão dos recursos da comunidade.</li></ul><h4 class="content-sub">Mordomia Cristã na Vida Prática</h4><p class="content-p">A mordomia cristã vai muito além dos dízimos e das ofertas, embora estes sejam o seu fundamento. Abrange toda a gestão responsável dos recursos que Deus nos confiou: o tempo, os talentos, a saúde, o trabalho, as relações e as posses materiais. Ser um bom mordomo significa usar todos estes recursos de forma prudente e generosa, evitar o endividamento desnecessário e o consumismo descontrolado, ser generoso com os necessitados, e manter uma relação saudável e liberta com o dinheiro, sem o tornar em ídolo que ocupa o lugar de Deus. “Porque o amor ao dinheiro é raiz de todos os males” (1 Timóteo 6:10). A liberdade cristã inclui a liberdade financeira que vem de confiar em Deus como provedor soberano, de viver com contentamento em qualquer situação (Filipenses 4:11-12) e de ser um canal de bênção para os outros.</p><div class="content-verse"><p>“Honra ao Senhor com os teus bens e com as primícias de todos os teus lucros; e se encherão fartos os teus celeiros, e transbordarão de vinho os teus lagares.”</p><span>Provérbios 3:9-10</span></div>`
   },
   {
-    num:8,
+    num:8, part:1,
     title:"A vida na Igreja local",
-    desc:"Membrasia, governo, culto e responsabilidades do crente",
-    verse:"Não deixando de congregar-nos uns com os outros.",
-    ref:"Hebreus 10:25",
-    topics:[
-      "Governo teocrático e consensual da Assembleia de Deus",
-      "O culto pentecostal – ordem e liberdade do Espírito",
-      "Direitos e responsabilidades do membro da Igreja",
-      "Serviço e ministérios na comunidade local"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSdDuJ5fFMMebDjIJY1smunNngsVc5--OH-pwf-uX5uhmdCmgg/viewform"
+    desc:"Membresia, governo, culto e responsabilidades do crente",
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSdDuJ5fFMMebDjIJY1smunNngsVc5--OH-pwf-uX5uhmdCmgg/viewform",
+    content:`<p class="content-p">Cremos que a Igreja de Cristo é constituída por todas as pessoas remidas, nascidas de novo e batizadas, vivendo em santidade e separadas do mundo. A membresia activa na igreja local não é opcional para o crente maduro – é parte integral e necessária de uma vida cristã saudável e frutífera. É na comunidade que crescemos espiritualmente, somos edificados pela Palavra e pelos irmãos, servimos com os nossos dons, resistimos em conjunto às adversidades e nos tornamos progressivamente semelhantes a Cristo. “O ferro com o ferro se afia; e o homem afia o semblante do seu amigo” (Provérbios 27:17). A solidão espiritual enfraquece; a comunhão fortalece.</p><h4 class="content-sub">Governo da Igreja</h4><p class="content-p">O governo da Assembleia de Deus é teocrático na sua doutrina e direcção espiritual, sendo Deus, através da Sua Palavra inspirada e do Espírito Santo, quem guia a Igreja. O pastor e a liderança não governam por autoridade própria, mas como servos de Cristo e da congregação (Marcos 10:43-45). Na sua dimensão administrativa e financeira, o governo é consensual: a congregação é consultada e informada periodicamente sobre as finanças, as decisões estratégicas e a nomeação de oficiais. Cada membro tem voz, responsabilidade e participação na vida da comunidade. As decisões importantes são tomadas em assembleias de membros, com oração e busca colectiva da vontade de Deus.</p><h4 class="content-sub">O Culto Pentecostal</h4><p class="content-p">Os cultos da Assembleia de Deus são caracterizados por louvor e adoração fervorosa a Deus, por oração individual e colectiva, por pregação e ensino fiel e contextualizado da Palavra de Deus, e por espaço genuíno para a operação do Espírito Santo com a manifestação dos dons espirituais. Tudo é feito com ordem e decência, porque “Deus não é Deus de confusão, mas de paz” (1 Coríntios 14:33,40), mas com liberdade espiritual autêntica e afecto fraternal verdadeiro.</p><h4 class="content-sub">Responsabilidades do Membro</h4><ul class="content-list"><li>Pautar a sua conduta em todas as áreas da vida por obediência à doutrina e princípios bíblicos ensinados pela Igreja.</li><li>Contribuir financeiramente nos termos bíblicos, através dos dízimos e das ofertas, como acto de adoração, fidelidade e responsabilidade comunitária.</li><li>Desempenhar com zelo, humildade e consistência as funções e ministérios que lhe forem confiados pela liderança.</li><li>Procurar o conselho e assistência espiritual dos oficiais da Igreja em momentos de dificuldade, dúvida ou conflito.</li><li>Ser um testemunho vivo, coerente e corajoso de Cristo no seu bairro, local de trabalho, família e comunidade alargada.</li></ul>`
   },
   {
-    num:9,
+    num:9, part:1,
     title:"Preparação final e declaração de fé",
     desc:"Lista de verificação, entrevista pastoral e declaração pessoal",
-    verse:"Se confessares com a tua boca que Jesus é Senhor, e creres no teu coração que Deus o ressuscitou dos mortos, serás salvo.",
-    ref:"Romanos 10:9",
-    topics:[
-      "Lista de verificação completa para o candidato ao baptismo",
-      "O que esperar no dia do baptismo",
-      "Declaração pessoal de fé perante a congregação",
-      "Marcação da entrevista final com o pastor"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSdPnhgzFgDuEMfysIRxB3CpRbquQ-XWjHgGZYTUHV8orMsJTQ/viewform"
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSdPnhgzFgDuEMfysIRxB3CpRbquQ-XWjHgGZYTUHV8orMsJTQ/viewform",
+    content:`<p class="content-p">A preparação para o baptismo não é apenas um processo administrativo – é uma jornada espiritual de exame, confirmação e entrega. Este capítulo reúne os passos práticos que o candidato deve dar antes, durante e depois do baptismo, para que este momento seja vivido com a profundidade e a alegria que merece.</p><h4 class="content-sub">Lista de Verificação para o Candidato</h4><ul class="content-list"><li>Li e compreendo este manual na sua totalidade, incluindo a Declaração de Fé da CADP.</li><li>Tenho uma experiência genuína e testemunhável de conversão e novo nascimento.</li><li>Frequentei as aulas de preparação para o baptismo com assiduidade e participação activa.</li><li>Realizei a entrevista pessoal com o pastor ou um membro da liderança.</li><li>Vivo de forma coerente com os princípios bíblicos ensinados pela Igreja.</li><li>Aceito e subscrevo de coração a Declaração de Fé da Convenção das Assembleias de Deus em Portugal (CADP), cujo texto integral se encontra disponível para consulta no site oficial da CADP (www.cadp.pt) e em anexo a este manual.</li><li>Assinei a Declaração Pessoal de Fé (última página deste manual).</li><li>Conheço a data, hora e local do baptismo.</li><li>Tenho roupa apropriada para a imersão</li></ul><h4 class="content-sub">O Dia do Baptismo</h4><p class="content-p">O dia do baptismo é um dia de celebração e alegria para toda a comunidade. Chegue com antecedência ao local indicado pela liderança. Traga roupa de substituição e toalha. Se o desejar, poderá partilhar brevemente o seu testemunho de conversão antes ou após a imersão – um testemunho pessoal é sempre uma bênção e um encorajamento para toda a congregação. Familiares e amigos, incluindo não crentes, são muito bem-vindos para testemunhar este momento precioso, eterno e irreversível.</p><div class="content-verse"><p>“Fomos, pois, sepultados com Ele pelo baptismo na morte, para que, assim como Cristo ressuscitou dos mortos pela glória do Pai, assim também nós andemos em novidade de vida.”</p><span>Romanos 6:4</span></div><p class="content-p">| <strong>PARTE II – GUIA DE INTEGRAÇÃO NA COMUNIDADE</strong> |</p><p class="content-p">| --- |</p><p class="content-p">Esta segunda parte destina-se especialmente a irmãos e irmãs que chegaram de outros países e culturas, bem como a todos os que desejam integrar-se plenamente na vida da comunidade portuguesa e da nossa Igreja. O objectivo é ajudar cada pessoa a sentir-se verdadeiramente em casa – tanto na Assembleia de Deus de Miranda do Corvo, como na sociedade portuguesa de forma mais ampla. A diversidade de origens é uma riqueza imensa para a Igreja de Cristo: traz perspectivas novas, experiências variadas e testemunhos poderosos do amor universal de Deus que alcança todas as nações.</p><div class="content-verse"><p>“Nisto não há judeu nem grego; não há servo nem livre; não há macho nem fêmea; porque todos vós sois um em Cristo Jesus.”</p><span>Gálatas 3:28</span></div>`
   },
   {
-    num:10,
-    part:2,
+    num:10, part:2,
     title:"Cultura e sociedade portuguesa",
     desc:"Identidade, valores, gastronomia, festividades e a língua portuguesa",
-    verse:"Nisto não há judeu nem grego; não há servo nem livre; porque todos vós sois um em Cristo Jesus.",
-    ref:"Gálatas 3:28",
-    topics:[
-      "Identidade e valores do povo português (a 'saudade', família, hospitalidade)",
-      "Festividades, tradições e gastronomia nacionais",
-      "Etiqueta social e costumes do quotidiano",
-      "A língua portuguesa como porta de integração",
-      "Documentação essencial: NIF, NISS, residência, SNS"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSeRkHQjq7r_169T-pqXAbPMnXcq1pzq8rlwJ6KVsZphc4FU2w/viewform"
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSeRkHQjq7r_169T-pqXAbPMnXcq1pzq8rlwJ6KVsZphc4FU2w/viewform",
+    content:`<h3 class="content-chaptitle">Bem-vindo(a) a Portugal – Cultura e Identidade Portuguesa</h3><p class="content-p">Portugal é um país de uma riqueza cultural, histórica e humana extraordinária. Com mais de oito séculos de história como nação soberana e uma presença marcante em todos os continentes através dos séculos da expansão marítima, Portugal é um país que orgulha profundamente as suas raízes e ao mesmo tempo acolhe quem vem de longe com uma hospitalidade genuína. Miranda do Corvo, situada no coração da região de Coimbra, na zona da Beira Litoral, é uma vila de gente trabalhadora, ligada à terra e com uma identidade regional forte, onde a comunidade ainda tem um sentido de vizinhança e proximidade muito enraizado.</p><h4 class="content-sub">Identidade e Valores do Povo Português</h4><p class="content-p">Os portugueses são, na generalidade, um povo afectuoso, hospitaleiro e de grande resistência interior. Existe um conceito tipicamente português que importa conhecer: a “saudade” – que descreve um sentimento profundo de nostalgia amorosa por algo ou alguém que está ausente. Este sentimento permeia a cultura, a música (o Fado de Coimbra e de Lisboa), a literatura e a expressão artística do povo português. Compreender a saudade é tocar na alma do país. Os portugueses são por vezes reservados na primeira abordagem, mas tornam-se extremamente leais e calorosos quando a confiança está estabelecida. As relações pessoais são altamente valorizadas, e a palavra dada tem um peso significativo na cultura local.</p><ul class="content-list"><li>A família: Núcleo central e insubstituível da sociedade portuguesa. Os laços familiares são fortes e duradouros, transmitidos de geração em geração. O respeito pelos mais velhos, pelos pais e avós, é muito valorizado. As refeições em família, especialmente ao domingo, são uma tradição muito enraizada que deve ser respeitada e, se possível, adoptada.</li><li>A hospitalidade genuína: Os portugueses gostam de receber, acolher e partilhar. Uma visita a casa de um português é, quase sempre, sinónimo de mesa farta, conversas longas e acolhimento sincero. Aceitar convites é um sinal de respeito e afecto que estreita as relações.</li><li>A humildade e a discrição: O português médio não aprecia a ostentação ou a arrogância. Valoriza profundamente a pessoa simples, trabalhadora, honesta e humilde. Mostrar demasiada exibição de riqueza, superioridade cultural ou menosprezo pelo país pode gerar afastamento imediato.</li><li>A religiosidade cultural: Portugal tem uma história profundamente marcada pelo catolicismo romano. Mesmo que muitos portugueses não pratiquem activamente a sua fé, as festas religiosas, os santos padroeiros e as tradições cristãs fazem parte da identidade cultural nacional. Como crentes evangélicos, é importante ter respeito genuíno por esta herança cultural, mesmo que a nossa fé seja expressa de forma distinta e bíblica.</li><li>O trabalho e a honestidade: Há um grande apreço social pela pessoa trabalhadora, responsável, que cumpre os seus compromissos e honra a sua palavra. Ser conhecido(a) como uma pessoa honesta, fiável e de confiança é um dos maiores elogios na cultura portuguesa.</li></ul><h4 class="content-sub">Festividades e Tradições Nacionais</h4><p class="content-p">Portugal tem um calendário rico em festividades nacionais e locais que fazem parte do tecido social e comunitário. Conhecê-las ajuda à integração, abre portas de diálogo e de testemunho, e permite compreender melhor a identidade do país que nos acolhe.</p><ul class="content-list"><li>25 de Abril – Dia da Liberdade: Comemoração da Revolução dos Cravos de 1974, que pôs fim a 48 anos de ditadura. É um dia de profundo simbolismo democrático, celebrado com cerimónias públicas, o cravo vermelho na lapela e um sentimento nacional de orgulho e gratidão pela liberdade. É um feriado muito sentido pela população portuguesa.</li><li>10 de Junho – Dia de Portugal: Feriado nacional em honra de Luís de Camões, o maior poeta português, e dos Portugueses espalhados pelo mundo. Celebra a identidade, a história e a língua da nação portuguesa.</li><li>Festas dos Santos Populares (Junho): Especialmente as festas de Santo António (13 de Junho) em Lisboa, São João (24 de Junho) no Porto e Braga, e São Pedro (29 de Junho). São festas de grande convívio popular, marchas, música, sardinhas assadas e alegria comunitária. Na região de Coimbra, estas festas têm uma vivência local muito especial.</li><li>Natal e Páscoa: Celebrações com forte componente familiar e cultural. O bacalhau na Consoada (noite de 24 de Dezembro) e os feriados da Semana Santa são momentos de reunião familiar muito valorizados, mesmo por quem não pratica activamente a fé cristã.</li><li>Festas locais: Miranda do Corvo tem as suas próprias festas e romarias locais. Participar nestes eventos, com o discernimento cristão adequado, é uma oportunidade de conhecer os vizinhos, a comunidade e de ser um testemunho visível de Cristo na vila.</li></ul><h4 class="content-sub">Gastronomia e Convívio à Mesa</h4><p class="content-p">A gastronomia portuguesa é uma das mais ricas e variadas da Europa e um dos maiores pontos de orgulho nacional. A mesa portuguesa é um espaço de comunhão, de partilha de histórias e de celebração das relações humanas. Ser convidado(a) para comer com uma família portuguesa é um sinal inequívoco de grande acolhimento e confiança.</p><p class="content-p">O bacalhau é o “fiel amigo” – dizem os portugueses que há mais de 365 formas de o cozinhar, uma para cada dia do ano! O pão artesanal, o azeite de oliva, os mariscos, as sopas reconfortantes como o caldo verde, o cozido à portuguesa, a caldeirada de peixe e os famosos pastéis de nata são ícones da culinária nacional. Na região de Coimbra e Arganil, próxima de Miranda do Corvo, pratos como a chanfana (ex-líbris de Miranda do Corvo), o cabrito assado e o leitão têm uma importância cultural especial, particularmente em celebrações e festividades.</p><ul class="content-list"><li>Aceitar partilhar uma refeição é sempre muito bem recebido e valorizado como gesto de abertura e amizade. Se convidar alguém, sirva generosamente – o anfitrião português nunca quer que o seu convidado fique com fome ou se sinta pouco acolhido.</li><li>Nas refeições, espere que o anfitrião convide a sentar e a começar antes de se servir. Levantar-se antes do fim da refeição sem justificação pode ser interpretado como descortesia ou desinteresse.</li><li>Agradecer pela refeição e pelos gestos de hospitalidade é muito valorizado e apreciado. Um sincero “estava delicioso!” ou “obrigado(a) pelo carinho!” estabelece laços duradouros.</li></ul><h4 class="content-sub">Etiqueta Social e Costumes do Quotidiano</h4><p class="content-p">| <strong>Situação</strong> | <strong>Prática habitual em Portugal</strong> |</p><p class="content-p">| --- | --- |</p><p class="content-p">| Cumprimentos | Aperto de mão (formal), dois beijinhos na face (entre conhecidos). “Bom dia”, “Boa tarde” e “Boa noite” são usados frequentemente e mostram educação. |</p><p class="content-p">| Visitar alguém | Avise sempre com antecedência. Na primeira visita, é costume levar algo (flores, doces, fruta). A pontualidade em visitas marcadas é sinal de respeito. |</p><p class="content-p">| Refeições | Espere que o anfitrião convide a sentar e a começar. Elogiar a comida é sempre muito apreciado. |</p><p class="content-p">| Ruído e privacidade | Os portugueses respeitam a tranquilidade dos vizinhos. Evite música alta ou barulho excessivo, especialmente após as 22h (lei do silêncio). |</p><p class="content-p">| Limpeza pública | Nunca deite lixo para o chão. Use os caixotes do lixo e os ecopontos de reciclagem. A limpeza dos espaços públicos é um valor muito respeitado. |</p><p class="content-p">| Fila de espera | Respeite sempre a ordem de chegada em lojas, serviços, transportes, etc. Furar a fila é considerado muito mal-educado e pode gerar conflito. |</p><p class="content-p">| Pontualidade | No trabalho e em contextos formais, a pontualidade é altamente valorizada. Em contextos sociais existe mais flexibilidade, mas avisar quando se vai atrasar é sempre correcto. |</p><p class="content-p">| Tratamento formal | Use “senhor” ou “senhora” em contextos formais. “Você” é neutro e respeitoso. “Tu” é mais íntimo e usa-se apenas com quem tem maior proximidade pessoal. |</p><h4 class="content-sub">Aspectos Legais e Documentação</h4><p class="content-p">Para viver e trabalhar legalmente em Portugal, é necessário tratar de alguns documentos essenciais. A nossa Igreja pode orientá-lo(a) neste processo e colocar-nos em contacto com entidades especializadas de apoio ao imigrante. Não deixe estes assuntos por resolver – a regularização documental é fundamental para a sua segurança, dignidade, acesso pleno aos serviços públicos e para uma vida tranquila e sem sobressaltos legais.</p><ul class="content-list"><li>NIF (Número de Identificação Fiscal): Essencial para qualquer actividade financeira, contrato de trabalho, arrendamento de habitação ou compra de bens. Obtém-se nas Finanças ou em alguns consulados portugueses no estrangeiro.</li><li>NISS (Número de Identificação da Segurança Social): Necessário para trabalhar legalmente em Portugal e ter acesso ao sistema de protecção social e de saúde público.</li><li>Título de residência: Obrigatório para cidadãos não-comunitários que permaneçam em Portugal por mais de 90 dias. Processo gerido pelo AIMA (Agência para a Integração, Migrações e Asilo).</li><li>Utente do SNS (Serviço Nacional de Saúde): Registo no centro de saúde da área de residência para acesso a cuidados médicos primários gratuitos ou com taxas moderadoras reduzidas.</li></ul><p class="content-p">Para questões legais e de imigração, pode contactar o ACM – Alto Comissariado para as Migrações (www.acm.gov.pt) ou o AIMA (www.aima.gov.pt).</p><h3 class="content-chaptitle">A Língua Portuguesa – Porta de Integração</h3><p class="content-p">A língua é, sem dúvida, a maior e mais poderosa porta de integração numa nova cultura e comunidade. Falar português não é apenas uma necessidade prática do quotidiano: é um gesto profundo de respeito pelo país que nos acolhe, uma forma de construir pontes genuínas e duradouras com os vizinhos, colegas, membros da Igreja e com toda a sociedade. É também uma ferramenta espiritual essencial para crescer na fé numa comunidade de língua portuguesa, para entender a pregação, participar nos cultos, ler a Bíblia no idioma do país, e servir eficazmente os irmãos.</p><p class="content-p">Aprender uma nova língua pode ser desafiante e por vezes frustrante, mas é um dos investimentos mais transformadores que uma pessoa pode fazer. Os erros fazem parte do processo natural de aprendizagem – nenhum português de boa fé vai julgar ou ridicularizar quem está genuinamente a esforçar-se por comunicar na sua língua. Pelo contrário, o esforço e a perseverança são muito valorizados e geram imediatamente empatia, acolhimento e vontade de ajudar.</p><ul class="content-list"><li>Procure aulas de Português para Estrangeiros. Muitos municípios, associações, centros de emprego e escolas profissionais oferecem estas aulas gratuitamente ou a custos muito simbólicos. O Município de Miranda do Corvo e os serviços sociais da região podem indicar os recursos disponíveis actualmente.</li><li>A nossa Igreja tem irmãos e irmãs dispostos a ajudar voluntariamente na aprendizagem da língua, seja em conversas informais, grupos de estudo ou apoio mais estruturado.</li><li>A leitura da Bíblia em Português é uma das melhores e mais enriquecedoras formas de aprender a língua: o texto é familiar o que facilita a compreensão, e ao mesmo tempo alimenta profundamente a vida espiritual.</li><li>Ouvir rádio, ver televisão, seguir podcasts e ler jornais em português europeu acelera significativamente o processo de aprendizagem e ajuda a familiarizar-se com o sotaque e as expressões regionais.</li><li>Aplicações como Duolingo, Babbel, ou canais no YouTube dedicados ao Português Europeu são recursos gratuitos e excelentes que podem ser usados em qualquer momento do dia.</li><li>Os cultos e todas as actividades da Igreja são celebrados integralmente em Português. Encorajamos todos os irmãos a participar activamente, mesmo com dificuldades iniciais, como forma de crescimento simultâneo na língua e na fé.</li></ul><p class="content-p">Não tenha vergonha de falar, de perguntar ou de pedir que repitam mais devagar. O esforço de comunicar na língua do outro é sempre interpretado como um gesto de respeito e integração. E lembre-se: a maior parte dos santos da Bíblia tiveram de aprender línguas e culturas novas ao seguirem o chamado de Deus nas suas vidas.</p>`
   },
   {
-    num:11,
-    part:2,
+    num:11, part:2,
     title:"Viver em Portugal: álcool, condução e documentação",
     desc:"Abordagem cristã ao álcool e as leis de trânsito e identificação",
-    verse:"Não vos embriagueis com vinho, em que há dissolução; mas enchei-vos do Espírito.",
-    ref:"Efésios 5:18",
-    topics:[
-      "O álcool na cultura portuguesa – uma abordagem bíblica equilibrada",
-      "Abstinência e consumo moderado: liberdade e responsabilidade",
-      "Carta de condução, seguro obrigatório e inspeção do veículo",
-      "Motociclos: uso obrigatório de capacete",
-      "Dever de ter sempre documento de identificação na via pública"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSeIpHqd9ZdrbrBPdRbJ7Kyz8Jgxh9DJ66jSngB8o6kok03dfA/viewform"
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSeIpHqd9ZdrbrBPdRbJ7Kyz8Jgxh9DJ66jSngB8o6kok03dfA/viewform",
+    content:`<h3 class="content-chaptitle">Mobilidade, Condução e Documentação em Portugal</h3><p class="content-p">Portugal tem um sistema de trânsito bem regulamentado e organizado, com regras claras que visam garantir a segurança de todos os utentes das vias públicas – peões, ciclistas, motociclistas e automobilistas. O cumprimento das leis de trânsito não é apenas uma obrigação legal, mas uma responsabilidade moral e cristã para com o próximo. Como crentes, somos chamados a respeitar as autoridades e as leis civis: “Toda a alma esteja sujeita às potestades superiores” (Romanos 13:1). Um crente que desrespeita as leis de trânsito coloca em risco a sua vida, a vida de outros, e prejudica o testemunho da Igreja na comunidade.</p><h4 class="content-sub">Carta de Condução – Obrigatoriedade</h4><p class="content-p">Em Portugal, é absolutamente obrigatório possuir uma carta de condução válida para conduzir qualquer veículo motorizado na via pública – automóvel, motociclo, ciclomotor ou qualquer outro veículo a motor. Conduzir sem carta de condução é uma contraordenação grave que pode resultar em coima elevada (entre 500€ e 2.500€), apreensão imediata do veículo e, em caso de acidente, em responsabilidade criminal e civil pessoal muito séria. Se possuir carta de condução emitida noutro país, verifique junto do IMT (Instituto da Mobilidade e dos Transportes) se a mesma é válida em Portugal ou se precisa de ser trocada ou reconhecida. Cidadãos de países não-comunitários têm geralmente prazo definido para trocar a carta estrangeira pela carta portuguesa.</p><ul class="content-list"><li>Carta de condução de países da União Europeia: Totalmente válida em Portugal sem necessidade de troca imediata.</li><li>Carta de condução de países fora da UE: Pode ser válida por um período limitado (geralmente 90 a 180 dias). Depois desse prazo, é obrigatório trocar pela carta portuguesa ou realizar os exames de condução em Portugal.</li><li>Condução sem carta válida: Contraordenação gravíssima com coimas pesadas, possível apreensão do veículo e responsabilidade agravada em caso de sinistro.</li></ul><h4 class="content-sub">Seguro Automóvel Obrigatório</h4><p class="content-p">Em Portugal, é obrigatório por lei que todos os veículos motorizados que circulem na via pública – ou que estejam estacionados em locais públicos – possuam, no mínimo, um seguro de responsabilidade civil automóvel, vulgarmente chamado “seguro contra terceiros”. Este seguro garante que, em caso de acidente com culpa do segurado, as vítimas terceiras (outros condutores, passageiros ou peões lesados) ficam devidamente indemnizadas pelos danos sofridos. Circular sem seguro é uma infracção gravíssima que acarreta coima entre 500€ e 2.500€, apreensão imediata do veículo, e, em caso de acidente, obrigação de pagar todos os danos causados do próprio bolso – o que pode resultar em valores avultadíssimos que podem comprometer toda a situação financeira pessoal e familiar por muitos anos.</p><ul class="content-list"><li>Seguro mínimo obrigatório: Responsabilidade civil (RC) automóvel – cobre os danos causados a terceiros pelo veículo segurado.</li><li>Seguro facultativo recomendado: Seguro multirriscos ou de danos próprios, que cobre também os danos sofridos pelo próprio veículo em caso de acidente, furto ou vandalismo.</li><li>O seguro deve ser renovado anualmente e o comprovativo deve estar sempre acessível – em papel ou em formato digital no telemóvel.</li><li>Antes de adquirir qualquer veículo, certifique-se de que o seguro entra em vigor no exacto momento em que sai com o veículo pela primeira vez.</li></ul><h4 class="content-sub">Inspecção Periódica do Veículo (IPO)</h4><p class="content-p">Todos os veículos matriculados em Portugal são obrigados a submeter-se a inspecções periódicas obrigatórias nos Centros de Inspecção Técnica de Veículos (CITV), vulgarmente conhecidos como “IPO” (Inspecção Periódica Obrigatória). O objectivo é garantir que o veículo se encontra em condições de segurança adequadas para circular na via pública, verificando travões, luzes, emissões de gases, pneus, direcção e outros componentes essenciais. Circular com a inspecção periódica vencida é uma infracção que pode resultar em coima e em responsabilidade agravada em caso de acidente causado por deficiência mecânica. Ao adquirir um veículo usado, verifique sempre a validade da inspecção antes de o colocar em circulação.</p><ul class="content-list"><li>Veículos novos: Primeira inspecção aos 4 anos após a data de matrícula.</li><li>Veículos com 4 a 7 anos: Inspecção a cada 2 anos.</li><li>Veículos com mais de 7 anos: Inspecção anual obrigatória.</li><li>A data da próxima inspecção está registada no documento único automóvel e pode ser consultada no portal do IMT (www.imt-ip.pt).</li></ul><h4 class="content-sub">Motociclos e Ciclomotores – Regras Específicas</h4><p class="content-p">Para quem opte por utilizar motociclo ou ciclomotor como meio de transporte em Portugal, além das obrigações gerais de carta de condução e seguro, existem regras específicas de segurança que devem ser conhecidas e cumpridas rigorosamente. Portugal tem, infelizmente, uma das taxas de sinistralidade rodoviária mais elevadas da Europa para motociclistas, pelo que o cumprimento das normas de segurança é ainda mais crítico e literalmente vital.</p><ul class="content-list"><li>Uso obrigatório de capacete homologado: O uso de capacete de protecção é OBRIGATÓRIO tanto para o condutor como para o passageiro, sem excepções, mesmo em trajetos muito curtos ou a baixas velocidades. O capacete deve estar devidamente homologado (com marca CE) e correctamente afivelhado. Circular sem capacete é uma contra-ordenação grave com coima entre 120€ e 600€, e pode resultar em lesões gravíssimas ou morte em caso de queda.</li><li>Uso recomendado de colete reflector: Em condições de fraca visibilidade ou circulação nocturna, o colete reflector aumenta significativamente a visibilidade do motociclista para outros condutores.</li><li>Carta de condução adequada: A condução de motociclos requer carta de condução da categoria A (motociclos) ou AM (ciclomotores), conforme a cilindrada do veículo. A carta de condução da categoria B (automóvel) não habilita, por si só, a condução de motociclos de maior cilindrada.</li><li>Seguro obrigatório: Tal como para automóveis, todos os motociclos e ciclomotores necessitam de seguro de responsabilidade civil em vigor.</li></ul><h4 class="content-sub">Documentos de Identificação – Obrigatoriedade na Via Pública</h4><p class="content-p">Uma regra fundamental e muitas vezes desconhecida por quem chega de outros países: em Portugal, qualquer pessoa que se encontre na via pública – a pé, de bicicleta, ou dentro de qualquer veículo – tem a OBRIGAÇÃO LEGAL de ter consigo um documento de identificação válido. Este dever aplica-se mesmo que não esteja a conduzir nenhum veículo, mesmo que esteja simplesmente a passear, a fazer compras ou a estar num espaço público. As autoridades policiais (PSP, GNR) têm poderes legais para solicitar a identificação de qualquer cidadão em qualquer momento na via pública.</p><ul class="content-list"><li>Para cidadãos portugueses e comunitários: O Bilhete de Identidade (Cartão de Cidadão), o Passaporte ou a Carta de Condução válida são documentos de identificação aceites.</li><li>Para cidadãos estrangeiros não-comunitários residentes: O Título de Residência válido emitido pelo AIMA é o documento de identificação principal. Em alternativa, o Passaporte válido do país de origem é sempre aceite.</li><li>Ao conduzir: O condutor é obrigado a transportar consigo a carta de condução, o documento único do veículo (DUA) e o comprovativo do seguro em vigor – todos susceptíveis de serem solicitados em fiscalização rodoviária.</li><li>Consequências de não ter identificação: Pode resultar em detenção para identificação e em coima. Em situações de sinistro ou infracção, a ausência de documentos complica significativamente a situação legal do cidadão.</li></ul><p class="content-p">Como conselho prático: habitue-se a sair sempre de casa com o seu documento de identificação principal. É um hábito simples que evita complicações desnecessárias e mostra respeito pelas leis do país que nos acolhe. Como crentes, devemos ser exemplo de cidadania responsável e de cumprimento das leis civis (Romanos 13:1-7; Tito 3:1).</p><h3 class="content-chaptitle">O Álcool na Cultura Portuguesa – Uma Abordagem Cristã e Equilibrada</h3><div class="content-verse"><p>“Não vos embriagueis com vinho, em que há dissolução; mas enchei-vos do Espírito.”</p><span>Efésios 5:18</span></div><p class="content-p">Portugal é um dos maiores produtores e consumidores de vinho do mundo, com uma tradição vitivinícola que remonta a milénios. O vinho português – do Vinho Verde minhoto ao Alentejano encorpado, do Douro ao Dão, passando pelo Moscatel de Setúbal e pelo Vinho do Porto – é parte inseparável da identidade cultural, gastronómica e social do país. A cerveja, os licores regionais e as aguardentes completam um panorama em que o consumo de álcool é socialmente normalizado, aceite e muitas vezes associado ao convívio, à celebração e à hospitalidade.</p><p class="content-p">Para quem chega de outros países ou de contextos religiosos diferentes, esta realidade pode ser surpreendente ou até desconcertante. Este capítulo aborda o tema com honestidade bíblica, respeito pela liberdade de consciência de cada crente, e atenção à saúde física e espiritual de cada pessoa.</p><h4 class="content-sub">O Álcool na Cultura Portuguesa – O Que Esperar</h4><p class="content-p">Em Portugal, o vinho e a cerveja fazem parte do quotidiano social de uma forma muito natural. É muito comum que nas refeições familiares, nos restaurantes, nos convívios de trabalho e nas festividades locais seja servido vinho ou cerveja, mesmo sem qualquer conotação de excesso ou de problema. Um anfitrião português que serve vinho aos seus convidados está a expressar hospitalidade, generosidade e partilha – não está necessariamente a pressionar ninguém a consumir algo que não deseja.</p><p class="content-p">Miranda do Corvo e a região de Coimbra têm uma tradição vinícola local, e o vinho acompanha tipicamente as refeições, as festas e os convívios comunitários. Recusar uma bebida alcoólica é sempre uma opção legítima e respeitada em Portugal – basta um simples “obrigado, não bebo” ou “prefiro água, obrigado”, sem necessidade de qualquer justificação adicional. Ninguém tem obrigação de se sentir pressionado a consumir álcool em qualquer contexto social.</p><h4 class="content-sub">O Que Diz a Bíblia sobre o Álcool</h4><p class="content-p">A Bíblia não condena o consumo de álcool de forma absoluta, mas é inequivocamente clara quanto às suas consequências quando consumido em excesso, e muito explícita sobre a necessidade de autodomínio como fruto do Espírito Santo (Gálatas 5:22-23). O próprio Jesus transformou água em vinho nas bodas de Caná (João 2:1-11), e o apóstolo Paulo recomendou a Timóteo que usasse um pouco de vinho pelas suas frequentes enfermidades (1 Timóteo 5:23). Ao mesmo tempo, as Escrituras são repletas de advertências sérias contra a embriaguez, o vício e a perda de autodomínio.</p><ul class="content-list"><li>A embriaguez é claramente condenada: “Não vos embriagueis com vinho, em que há dissolução; mas enchei-vos do Espírito” (Efésios 5:18). A embriaguez é listada entre as obras da carne que excluem do reino de Deus (Gálatas 5:19-21; 1 Coríntios 6:9-10).</li><li>O autodomínio é exigido: O crente é chamado a ser “sóbrio e vigilante” (1 Pedro 5:8), não apenas no sentido espiritual, mas também no sentido físico e comportamental. A sobriedade é sinal de maturidade cristã.</li><li>O testemunho importa: “Tudo me é lícito, mas nem tudo convém; tudo me é lícito, mas nem tudo edifica” (1 Coríntios 10:23). O crente deve considerar sempre o impacto do seu comportamento no testemunho de Cristo e na edificação dos irmãos mais fracos.</li><li>A liberdade cristã e a consideração pelo próximo: O apóstolo Paulo trata este tema com grande sabedoria em Romanos 14. O crente mais forte não deve desprezar o que se abstém; o que se abstém não deve julgar o que consome com moderação. “Tudo o que não procede de fé é pecado” (Romanos 14:23).</li></ul><h4 class="content-sub">Abstinência – Uma Escolha Legítima e Honrosa</h4><p class="content-p">Muitos crentes optam pela abstinência total do álcool como uma decisão pessoal de santificação, testemunho e cuidado do corpo que é templo do Espírito Santo (1 Coríntios 6:19-20). Esta escolha é absolutamente legítima, nobre e bíblica. Se sente no seu coração que a abstenção total é a decisão certa para si, não hesite em mantê-la com convicção e sem constrangimento em qualquer contexto social ou cultural.</p><p class="content-p">A Igreja não impõe a abstinência total como condição de salvação, de baptismo ou de pertença à comunidade. Contudo, certos ministérios e funções de liderança na Igreja – como diácono, presbítero ou pastor – exigem da pessoa que não seja “dado a muito vinho” (1 Timóteo 3:3,8; Tito 1:7), o que na prática aponta para a sobriedade exemplar como marca inequívoca do líder cristão.</p><ul class="content-list"><li>Se optar pela abstinência total: É uma decisão a respeitar e a honrar. Não necessita de justificar a sua escolha perante ninguém. Um simples “não, obrigado” é suficiente em qualquer contexto social.</li><li>Se tiver historial de dependência ou problemas com o álcool: A abstinência total é, nesse caso, não apenas uma opção, mas uma necessidade de saúde e de cuidado responsável do corpo e da mente que Deus lhe confiou. Não tenha vergonha de o assumir – é sinal de sabedoria e autoconsciência.</li><li>Apoio pastoral disponível: Se sentir dificuldades relacionadas com o consumo de álcool, ou se tiver um familiar ou próximo com dependência alcoólica, a liderança da Igreja está disponível para acompanhar, orientar e apoiar sem julgamento.</li></ul><h4 class="content-sub">Consumo Moderado – Responsabilidade e Discernimento</h4><p class="content-p">Para o crente que opta por consumir álcool de forma moderada e ocasional, a Bíblia traça critérios claros de responsabilidade, sobriedade e discernimento que devem sempre guiar essa escolha. “Portanto, quer comais, quer bebais, ou façais outra coisa qualquer, fazei tudo para a glória de Deus” (1 Coríntios 10:31). O consumo moderado não é pecado, mas requer maturidade espiritual, honesto conhecimento de si próprio e atenção constante ao testemunho cristão.</p><p class="content-p">É importante conhecer bem o próprio organismo e os seus limites. O álcool afecta cada pessoa de forma diferente, dependendo do peso corporal, da idade, do estado de saúde, da alimentação, da medicação em curso e da tolerância individual. O que é moderado para uma pessoa pode ser excessivo para outra. A honestidade consigo próprio e com Deus é fundamental nesta área.</p><ul class="content-list"><li>Nunca conduza após consumir álcool: A lei portuguesa estabelece um limite máximo de 0,5 g/l de álcool no sangue para condutores em geral, e de 0,2 g/l para condutores novos (primeiros 3 anos de carta) e condutores profissionais. Conduzir com taxa acima dos limites legais é uma infracção grave com coima pesada, possível perda da carta e responsabilidade criminal em caso de acidente.</li><li>Evite o consumo em contextos que possam escandalizar irmãos mais fracos ou não crentes: “Se o teu irmão se entristece por causa da tua comida, já não andas segundo o amor” (Romanos 14:15). O testemunho cristão tem sempre prioridade sobre a liberdade pessoal.</li><li>Nunca beba em resposta a pressão social, a ansiedade ou como forma de escapar a problemas: O crente encontra no Espírito Santo e na comunhão com Deus o consolo, a paz e a força que nenhuma substância pode proporcionar de forma genuína e duradoura.</li><li>Atenção à saúde: O consumo regular de álcool, mesmo em quantidades aparentemente moderadas, tem impacto documentado na saúde do fígado, do sistema cardiovascular, do sono e da saúde mental. Cuide responsavelmente do corpo que Deus lhe confiou.</li></ul><div class="content-verse"><p>“Não sabeis que o vosso corpo é o templo do Espírito Santo, que habita em vós, proveniente de Deus, e que não sois de vós mesmos? Porque fostes comprados por bom preço; glorificai, pois, a Deus no vosso corpo.”</p><span>1 Coríntios 6:19-20</span></div><h4 class="content-sub">Em Resumo – Posição Pastoral da Nossa Igreja</h4><p class="content-p">A Assembleia de Deus de Miranda do Corvo adopta uma posição pastoralmente equilibrada, bíblica e respeitadora da liberdade de consciência de cada crente. Não impomos a abstinência total como condição de membresia, mas exortamos todos os membros à sobriedade plena, ao autodomínio, ao cuidado do testemunho cristão e ao respeito pelo próximo em todas as situações. A embriaguez, a dependência e qualquer forma de consumo irresponsável são incompatíveis com a vida cristã. O legalismo e o julgamento mútuo são igualmente contrários ao espírito do Evangelho. Que em tudo – incluindo nesta área – o amor a Deus e ao próximo seja a nossa bússola permanente.</p>`
   },
   {
-    num:12,
-    part:2,
+    num:12, part:2,
     title:"Integração na Igreja local",
     desc:"Acolhimento, diversidade cultural, direitos e responsabilidades",
-    verse:"Vi uma grande multidão de todas as nações, e tribos, e povos, e línguas, em pé diante do trono.",
-    ref:"Apocalipse 7:9",
-    topics:[
-      "O acolhimento do novo membro na comunidade",
-      "Diversidade cultural como riqueza e unidade em Cristo",
-      "Diferença entre práticas culturais e doutrina bíblica",
-      "Práticas religiosas de outras origens – libertação em Cristo",
-      "Direitos e responsabilidades do membro da Igreja"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSf4cmM8lWyZFVC_4IjEEXKC4ZAAjtm3ocNXQDgs9-NSvGk-cw/viewform"
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSf4cmM8lWyZFVC_4IjEEXKC4ZAAjtm3ocNXQDgs9-NSvGk-cw/viewform",
+    content:`<h3 class="content-chaptitle">A Integração na Igreja Local</h3><p class="content-p">A integração na nossa Igreja é um processo belo e gradual de dois sentidos: a comunidade acolhe activamente o novo irmão ou irmã com amor, paciência e disponibilidade, e o novo membro esforça-se por conhecer, participar e contribuir genuinamente para a vida da comunidade. A integração plena não acontece num dia nem num mês, mas com paciência, diálogo, oração e amor fraternal, cada pessoa encontra o seu lugar único e precioso na família de Deus.</p><h4 class="content-sub">O Acolhimento na Igreja</h4><p class="content-p">Na Assembleia de Deus de Miranda do Corvo, cada novo membro terá acesso a este manual e a materiais de ensino adicionais, será apresentado à congregação em culto com alegria e afecto, terá oportunidade de integrar os ministérios da Igreja conforme os seus dons espirituais e disponibilidade de tempo, e contará com o acompanhamento pastoral e fraternal da liderança e de irmãos mais experientes na fé. Ninguém deve sentir-se sozinho nesta Igreja.</p><h4 class="content-sub">Diversidade Cultural na Igreja</h4><p class="content-p">A nossa congregação tem o privilégio de reunir irmãos e irmãs de diversas nacionalidades, línguas e culturas. Esta diversidade é uma riqueza enorme, um testemunho vivo da universalidade do Evangelho de Cristo que alcança todas as nações sem excepção, e um reflexo antecipado da multidão de todas as tribos, línguas e povos que adorarão o Cordeiro na eternidade (Apocalipse 7:9). Cada pessoa traz consigo a sua história única, os seus dons espirituais, a sua perspectiva cultural da graça de Deus, e contribui para enriquecer toda a comunidade.</p><ul class="content-list"><li>Respeito mútuo: Cada cultura tem os seus costumes, formas de comunicação, expressões de adoração e de relacionamento. Devemos aprender uns com os outros com humildade genuína e sem julgamento precipitado.</li><li>Unidade em Cristo: As diferenças culturais são reais e podem ser celebradas, mas não devem criar divisão, favoritismo ou grupos separados dentro da comunidade. Em Cristo, somos todos igualmente amados e igualmente chamados (Gálatas 3:28; Colossenses 3:11).</li><li>Adaptação responsável: É natural e saudável manter elementos genuínos da cultura de origem, mas a adaptação progressiva às práticas e dinâmicas da comunidade local facilita a comunhão, o crescimento espiritual e o testemunho eficaz.</li><li>Língua: Os cultos e actividades são integralmente em Português. Todos os irmãos são encorajados a participar activamente em Português como expressão de unidade, integração e amor ao próximo.</li></ul><h4 class="content-sub">Diferenças entre Práticas Culturais e Doutrina Bíblica</h4><p class="content-p">É fundamental distinguir claramente entre práticas culturais variáveis e doutrina bíblica universal e imutável. A doutrina bíblica não se adapta a culturas – é a cultura que deve ser avaliada e, quando necessário, transformada pela Palavra de Deus. Em caso de dúvida sobre se determinada prática cultural é compatível com a fé cristã, consulte sempre a Palavra de Deus em primeiro lugar, dialogue com o pastor ou com um líder da Igreja, e aborde as diferenças com humildade, diálogo aberto e oração.</p><h4 class="content-sub">Práticas Religiosas de Outras Origens</h4><p class="content-p">Alguns irmãos que chegam de outros países podem ter tido contacto anterior com práticas religiosas sincretistas, com tradições de origem africana, espíritas, animistas, islâmicas ou outras. A Bíblia é absolutamente clara sobre a incompatibilidade dessas práticas com a fé cristã bíblica (Deuteronómio 18:10-12; Gálatas 5:19-21). Se no passado esteve envolvido em qualquer tipo de prática ocultista, sincretista ou de feitiçaria, não tenha vergonha nem medo – converse abertamente com o pastor. A libertação completa e o perdão total de Deus estão disponíveis para todos os que se arrependem genuinamente em Cristo Jesus (1 João 1:9).</p><h3 class="content-chaptitle">Direitos e Responsabilidades na Igreja</h3><p class="content-p">| <strong>DIREITOS DO MEMBRO</strong> | <strong>RESPONSABILIDADES DO MEMBRO</strong> |</p><p class="content-p">| --- | --- |</p><p class="content-p">| Receber aconselhamento e assistência espiritual da liderança. | Pautar a conduta por obediência à doutrina e princípios bíblicos em todas as áreas da vida. |</p><p class="content-p">| Ser informado periodicamente da administração e uso transparente do dinheiro da Igreja. | Contribuir financeiramente (dízimos e ofertas) nos termos bíblicos, como acto de adoração e fidelidade. |</p><p class="content-p">| Obter carta de apresentação ou recomendação para outras igrejas das Assembleias de Deus. | Participar activamente nos cultos e actividades da congregação com regularidade e entusiasmo. |</p><p class="content-p">| Participar e ser consultado nas decisões consensuais da congregação em assembleias de membros. | Desempenhar com zelo, humildade e fidelidade as funções e ministérios da Igreja. |</p><p class="content-p">| Usufruir plenamente dos recursos espirituais, pastorais e fraternais da congregação. | Viver em santidade e ser testemunho coerente de Cristo no dia-a-dia, na família e na comunidade. |</p>`
   },
   {
-    num:13,
-    part:2,
+    num:13, part:2,
     title:"Recursos, apoio e conclusão",
     desc:"Recursos de apoio à integração e conclusão do curso completo",
-    verse:"E assim, pela fé e pela paciência, herdarão as promessas.",
-    ref:"Hebreus 6:12",
-    topics:[
-      "Apoio disponível na Igreja para o novo membro",
-      "Recursos nacionais: ACM, AIMA, Segurança Social, SNS, IMT",
-      "Contactos úteis da nossa comunidade",
-      "Conclusão e reflexão final sobre todo o percurso",
-      "Próximos passos no caminho de fé e integração"
-    ],
-    form:"https://docs.google.com/forms/d/e/1FAIpQLSd4KT-XMrjPZ8vnt7eEMJuyukPRktYYKnJMEuqNM8ZulfNZ7Q/viewform"
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSd4KT-XMrjPZ8vnt7eEMJuyukPRktYYKnJMEuqNM8ZulfNZ7Q/viewform",
+    content:`<h4 class="content-sub">Apoio da Igreja</h4><ul class="content-list"><li>Aconselhamento pastoral disponível em situações de dificuldade espiritual, emocional, relacional ou prática.</li><li>Apoio solidário em necessidades básicas emergenciais (alimentação, vestuário, abrigo) através dos recursos disponíveis na comunidade e da rede fraterna das Assembleias de Deus.</li><li>Acompanhamento voluntário na aprendizagem da língua portuguesa e na compreensão da cultura e costumes locais.</li><li>Orientação e apoio nos processos de documentação, legalização e regularização, em articulação com entidades especializadas de apoio ao imigrante.</li></ul><h4 class="content-sub">Recursos Nacionais</h4><ul class="content-list"><li>CADP – Convenção das Assembleias de Deus em Portugal: www.cadp.pt</li><li>ACM – Alto Comissariado para as Migrações: www.acm.gov.pt</li><li>AIMA – Agência para a Integração, Migrações e Asilo: www.aima.gov.pt</li><li>IMT – Instituto da Mobilidade e dos Transportes (carta de condução, inspecções): www.imt-ip.pt</li><li>Segurança Social: www.seg-social.pt</li><li>SNS – Serviço Nacional de Saúde: www.sns.gov.pt</li><li>CASES – Cooperativa António Sérgio para a Economia Social: www.cases.pt</li></ul><h4 class="content-sub">Contactos da Nossa Igreja</h4><p class="content-p">| <strong>ASSEMBLEIA DE DEUS – MIRANDA DO CORVO</strong> Rua Dom Afonso Henriques, Nº25 – Miranda do Corvo geral.admiranda@gmail.com  │  Tlm: 910 009 776 – Pastor João Estêvão CADP: www.cadp.pt  │  AD Coimbra: www.adcoimbra.pt |</p><p class="content-p">| --- |</p>`
   }
 ];
 
 const TOTAL = LESSONS.length;
-const STORAGE_KEY = 'admc_batismo_v3';
+const STORAGE_KEY = 'admc_batismo_v4';
+function getState(){try{const s=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(s&&Array.isArray(s.done))return s;}catch(e){}return{done:[],open:1,read:[]};}
+function saveState(s){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(s));}catch(e){}}
+function iconCheck(){return '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,8 6.5,12 13,4"/></svg>';}
+function iconBook(){return '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h5a2 2 0 0 1 2 2v9l-3.5-2L2 14V3z"/><path d="M14 3H9a2 2 0 0 0-2 2v9l3.5-2L14 14V3z"/></svg>';}
+function iconLock(){return '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="8" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>';}
+function iconExternal(){return '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><polyline points="10,2 14,2 14,6"/><line x1="14" y1="2" x2="7" y2="9"/></svg>';}
+function iconRead(){return '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h12M2 8h12M2 12h8"/></svg>';}
 
-function getState() {
-  try {
-    const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
-    if (s && Array.isArray(s.done)) return s;
-  } catch(e) {}
-  return { done: [], open: 1 };
-}
-
-function saveState(s) {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch(e) {}
-}
-
-function iconCheck() {
-  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,8 6.5,12 13,4"/></svg>`;
-}
-function iconBook() {
-  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h5a2 2 0 0 1 2 2v9l-3.5-2L2 14V3z"/><path d="M14 3H9a2 2 0 0 0-2 2v9l3.5-2L14 14V3z"/></svg>`;
-}
-function iconLock() {
-  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="8" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>`;
-}
-function iconExternal() {
-  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><polyline points="10,2 14,2 14,6"/><line x1="14" y1="2" x2="7" y2="9"/></svg>`;
-}
-
-function render() {
-  const state = getState();
-  const doneCount = state.done.length;
-  document.getElementById('prog-bar').style.width = (doneCount / TOTAL * 100) + '%';
-  document.getElementById('prog-label').textContent = doneCount + ' de ' + TOTAL + ' aulas concluídas';
-
-  const container = document.getElementById('lessons');
-  container.innerHTML = '';
-
-  let lastPart = 0;
-  LESSONS.forEach(l => {
-    const isDone = state.done.includes(l.num);
-    const isOpen = state.open === l.num;
-    const isLocked = !isDone && !isOpen;
-
-    const thisPart = l.part || 1;
-    if (thisPart !== lastPart) {
-      lastPart = thisPart;
-      const divider = document.createElement('div');
-      divider.className = 'part-divider';
-      divider.innerHTML = thisPart === 1
-        ? '<span class="part-tag">Parte I</span><span class="part-name">Manual do candidato ao batismo</span>'
-        : '<span class="part-tag part-tag-2">Parte II</span><span class="part-name">Guia de integração na comunidade</span>';
+function render(){
+  const state=getState();
+  if(!state.read)state.read=[];
+  const doneCount=state.done.length;
+  document.getElementById('prog-bar').style.width=(doneCount/TOTAL*100)+'%';
+  document.getElementById('prog-label').textContent=doneCount+' de '+TOTAL+' aulas concluídas';
+  const container=document.getElementById('lessons');
+  container.innerHTML='';
+  let lastPart=0;
+  LESSONS.forEach(l=>{
+    const isDone=state.done.includes(l.num);
+    const isOpen=state.open===l.num;
+    const isLocked=!isDone&&!isOpen;
+    const isRead=state.read.includes(l.num);
+    const thisPart=l.part||1;
+    if(thisPart!==lastPart){
+      lastPart=thisPart;
+      const divider=document.createElement('div');
+      divider.className='part-divider';
+      divider.innerHTML=thisPart===1?'<span class="part-tag">Parte I</span><span class="part-name">Manual do candidato ao batismo</span>':'<span class="part-tag part-tag-2">Parte II</span><span class="part-name">Guia de integração na comunidade</span>';
       container.appendChild(divider);
     }
-
-    const div = document.createElement('div');
-    div.className = 'lesson' + (isDone ? ' done' : isOpen ? ' active' : ' locked');
-
-    const numClass = isDone ? 'num-done' : isOpen ? 'num-active' : 'num-locked';
-    const numIcon = isDone ? iconCheck() : isOpen ? iconBook() : iconLock();
-    const badgeClass = isDone ? 'badge-done' : isOpen ? 'badge-active' : 'badge-locked';
-    const badgeText = isDone ? 'Concluída' : isOpen ? 'A decorrer' : 'Bloqueada';
-
-    let body = '';
-    if (isOpen || isDone) {
-      const topicsHtml = l.topics.map(t => `<li>${t}</li>`).join('');
-      const cta = isDone
-        ? `<div class="done-badge">${iconCheck()} Formulário submetido – aula concluída</div>`
-        : `<a class="btn-form" href="${l.form}" target="_blank" rel="noopener">${iconExternal()} Abrir questionário desta aula</a>
-           <button class="btn-done" onclick="markDone(event,${l.num})">✓ Já submeti o formulário</button>`;
-
-      body = `<div class="lesson-body">
-        <p class="lesson-intro">${l.desc}</p>
-        <div class="verse">
-          <p>"${l.verse}"</p>
-          <span>${l.ref}</span>
-        </div>
-        <p class="topics-title">Temas desta aula</p>
-        <ul class="topics">${topicsHtml}</ul>
-        <div class="cta-wrap">${cta}</div>
-      </div>`;
+    const div=document.createElement('div');
+    div.className='lesson'+(isDone?' done':isOpen?' active':' locked');
+    const numClass=isDone?'num-done':isOpen?'num-active':'num-locked';
+    const numIcon=isDone?iconCheck():isOpen?iconBook():iconLock();
+    const badgeClass=isDone?'badge-done':isOpen?'badge-active':'badge-locked';
+    const badgeText=isDone?'Concluída':isOpen?'A decorrer':'Bloqueada';
+    let body='';
+    if(isOpen||isDone){
+      const contentBlock=(isRead||isDone)?('<div class="content">'+l.content+'</div>'):'';
+      const readBtn=(isRead||isDone)?'':('<button class="btn-read" onclick="readLesson(event,'+l.num+')">'+iconRead()+' Ler a aula</button>');
+      const cta=isDone?('<div class="done-badge">'+iconCheck()+' Formulário submetido – aula concluída</div>'):('<div class="cta-wrap"><span class="cta-label">Depois de leres a aula, responde ao questionário:</span><a class="btn-form" href="'+l.form+'" target="_blank" rel="noopener">'+iconExternal()+' Abrir questionário desta aula</a><button class="btn-done" onclick="markDone(event,'+l.num+')">✓ Já submeti o formulário</button></div>');
+      body='<div class="lesson-body"><p class="lesson-intro">'+l.desc+'</p>'+readBtn+contentBlock+((isRead||isDone)?cta:'')+'</div>';
     }
-
-    div.innerHTML = `
-      <div class="lesson-header" role="button" tabindex="0" aria-expanded="${isOpen}" onclick="toggleLesson(${l.num},${isLocked})" onkeydown="if(event.key==='Enter')toggleLesson(${l.num},${isLocked})">
-        <div class="num ${numClass}">${numIcon}</div>
-        <div class="lesson-info">
-          <h3>Aula ${l.num} — ${l.title}</h3>
-          <p>${l.desc}</p>
-        </div>
-        <span class="badge ${badgeClass}">${badgeText}</span>
-      </div>
-      ${body}
-    `;
+    div.innerHTML='<div class="lesson-header" role="button" tabindex="0" aria-expanded="'+isOpen+'" onclick="toggleLesson('+l.num+','+isLocked+')" onkeydown="if(event.key===\'Enter\')toggleLesson('+l.num+','+isLocked+')"><div class="num '+numClass+'">'+numIcon+'</div><div class="lesson-info"><h3>Aula '+l.num+' — '+l.title+'</h3><p>'+l.desc+'</p></div><span class="badge '+badgeClass+'">'+badgeText+'</span></div>'+body;
     container.appendChild(div);
   });
 }
-
-function toggleLesson(num, locked) {
-  if (locked) return;
-  const state = getState();
-  state.open = (state.open === num) ? null : num;
-  saveState(state);
-  render();
-}
-
-function markDone(e, num) {
-  e.preventDefault();
-  const state = getState();
-  if (!state.done.includes(num)) state.done.push(num);
-  state.open = num < TOTAL ? num + 1 : null;
-  saveState(state);
-  render();
-  setTimeout(() => {
-    const next = document.querySelector('.lesson.active');
-    if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 150);
-}
-
+function toggleLesson(num,locked){if(locked)return;const s=getState();s.open=(s.open===num)?null:num;saveState(s);render();}
+function readLesson(e,num){e.preventDefault();const s=getState();if(!s.read)s.read=[];if(!s.read.includes(num))s.read.push(num);saveState(s);render();}
+function markDone(e,num){e.preventDefault();const s=getState();if(!s.done.includes(num))s.done.push(num);s.open=num<TOTAL?num+1:null;saveState(s);render();setTimeout(()=>{const n=document.querySelector('.lesson.active');if(n)n.scrollIntoView({behavior:'smooth',block:'start'});},150);}
 render();
 </script>
 </body>

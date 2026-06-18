@@ -1,87 +1,717 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Formação — Projeção / Multimédia · AD Miranda do Corvo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curso de Preparação para o Batismo – AD Miranda do Corvo, Poiares & Arganil</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-  :root{ --navy:#1F4E79; --blue:#2E5E8C; --gold:#B07D2B; --ink:#262626; --soft:#EEF4FA; --line:#dfe6ee; }
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{ font-family:'Lato',system-ui,Arial,sans-serif; color:var(--ink); margin:0; background:#f4f6f9; line-height:1.6; }
-  .wrap{ max-width:760px; margin:0 auto; padding:0 20px 70px; }
-  header.cover{ text-align:center; background:#fff; border-bottom:4px solid var(--gold); padding:42px 20px 34px; }
-  header.cover img{ width:128px; height:128px; border-radius:50%; }
-  .kicker{ color:var(--blue); font-weight:700; letter-spacing:.04em; font-size:.8rem; margin-top:14px; text-transform:uppercase; }
-  header.cover h1{ color:var(--navy); font-size:1.9rem; margin:.4em 0 .12em; }
-  .sub{ color:#555; font-style:italic; }
-  .church{ color:var(--navy); font-weight:700; margin-top:16px; }
-  .contacts{ color:#666; font-size:.88rem; margin-top:2px; }
-  .howto{ background:var(--soft); border:1px solid var(--line); border-left:4px solid var(--blue);
-           border-radius:10px; padding:18px 22px; margin:28px 0; }
-  .howto h2{ color:var(--navy); margin:0 0 8px; font-size:1.1rem; }
-  .howto p{ margin:.4em 0; }
-  .cta-wrap{ text-align:center; margin:26px 0; }
-  .cta{ display:inline-block; background:var(--navy); color:#fff; text-decoration:none;
-         padding:15px 30px; border-radius:10px; font-weight:900; font-size:1.1rem;
-         box-shadow:0 4px 14px rgba(31,78,121,.25); }
-  .cta:hover{ background:var(--blue); }
-  .cta small{ display:block; font-weight:400; font-size:.78rem; opacity:.85; margin-top:3px; }
-  h2.section{ color:var(--blue); text-align:center; font-size:1.15rem; margin:34px 0 4px; }
-  .hint{ text-align:center; color:#7a8896; font-size:.86rem; margin-bottom:14px; }
-  ol.program{ list-style:none; counter-reset:none; padding:0; margin:0; }
-  ol.program li{ background:#fff; border:1px solid var(--line); border-radius:10px;
-                  padding:14px 18px; margin:10px 0; }
-  .ln{ display:inline-block; background:var(--gold); color:#fff; font-weight:700; font-size:.72rem;
-        padding:2px 9px; border-radius:20px; letter-spacing:.03em; }
-  .lt{ display:block; color:var(--navy); font-weight:700; font-size:1.05rem; margin-top:6px; }
-  .ld{ display:block; color:#5a6b7a; font-size:.93rem; }
-  footer.foot{ text-align:center; color:#8a97a5; font-size:.82rem; margin-top:34px; }
-  @media (max-width:600px){ header.cover h1{ font-size:1.5rem; } }
+:root {
+  --azul: #3E7E94;
+  --azul-m: #4F95AC;
+  --azul-l: #DCEDF2;
+  --verde: #2C7A6B;
+  --verde-l: #DEF0EC;
+  --ouro: #C9A227;
+  --ouro-l: #FEF8E7;
+  --cinza: #F4F6F7;
+  --texto: #1a2327;
+  --texto-s: #56656b;
+  --borda: rgba(0,0,0,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Lato', sans-serif;
+  background: #F8F7F3;
+  color: var(--texto);
+  min-height: 100vh;
+}
+
+/* HERO */
+.hero {
+  background: var(--azul);
+  color: #fff;
+  padding: 3.5rem 1.5rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+  pointer-events: none;
+}
+.hero-logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 6px;
+  margin: 0 auto 1.25rem;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.hero-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+.hero h1 em {
+  font-style: normal;
+  color: #fff;
+}
+.hero-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 1.25rem;
+}
+.hero-verse span {
+  display: block;
+  font-size: 12px;
+  font-style: normal;
+  font-family: 'Lato', sans-serif;
+  color: rgba(255,255,255,0.45);
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+}
+
+/* PROGRESS */
+.progress-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.progress-meta p { font-size: 13px; color: var(--texto-s); }
+.progress-meta strong { font-size: 13px; color: var(--azul); font-weight: 500; }
+.progress-track {
+  height: 5px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--azul);
+  border-radius: 99px;
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* LESSONS */
+.lessons {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.part-divider {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 1.5rem 0 0.5rem;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--borda);
+}
+.part-divider:first-child { margin-top: 0; }
+.part-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--azul);
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.part-tag-2 { background: var(--verde); }
+.part-name {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--texto-s);
+}
+
+.lesson {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.lesson.locked { opacity: 0.48; }
+.lesson.active { border-color: var(--azul-m); box-shadow: 0 2px 16px rgba(31,78,121,0.1); }
+.lesson.done { border-left: 3px solid var(--verde); }
+
+.lesson-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+.lesson-header:hover { background: #FAFAF8; }
+.lesson.locked .lesson-header { cursor: default; }
+
+.num {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 500;
+  flex-shrink: 0;
+}
+.num-done { background: var(--verde-l); color: var(--verde); }
+.num-active { background: var(--azul-l); color: var(--azul); }
+.num-locked { background: var(--cinza); color: #aaa; }
+
+.lesson-info { flex: 1; min-width: 0; }
+.lesson-info h3 {
+  font-size: 14px; font-weight: 500;
+  color: var(--texto);
+  margin-bottom: 2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.lesson-info p { font-size: 12px; color: var(--texto-s); line-height: 1.4; }
+
+.badge {
+  font-size: 11px; font-weight: 500;
+  padding: 3px 10px; border-radius: 99px;
+  white-space: nowrap; flex-shrink: 0;
+}
+.badge-done { background: var(--verde-l); color: var(--verde); }
+.badge-active { background: var(--azul-l); color: var(--azul); }
+.badge-locked { background: var(--cinza); color: #aaa; }
+
+/* LESSON BODY */
+.lesson-body {
+  padding: 1.25rem;
+  border-top: 1px solid var(--borda);
+  animation: slideDown 0.25s ease;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lesson-intro {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.05rem;
+  color: var(--texto-s);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.verse {
+  background: var(--ouro-l);
+  border-left: 3px solid var(--ouro);
+  border-radius: 0 10px 10px 0;
+  padding: 0.875rem 1rem;
+  margin-bottom: 1rem;
+}
+.verse p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: #5a3e00;
+  line-height: 1.55;
+}
+.verse span {
+  display: block;
+  font-size: 11px;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--ouro);
+  margin-top: 5px;
+  letter-spacing: 0.04em;
+}
+
+.topics-title {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+.topics {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 1.25rem;
+}
+.topics li {
+  font-size: 13px;
+  color: var(--texto-s);
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.5;
+}
+.topics li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--azul-m);
+}
+
+.cta-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-top: 1rem;
+  border-top: 1px solid var(--borda);
+}
+.btn-form {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--azul);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.btn-form:hover { background: var(--azul-m); }
+.btn-form svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.btn-done {
+  background: none;
+  border: 1px solid var(--borda);
+  color: var(--texto-s);
+  font-size: 12px;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn-done:hover { background: var(--verde-l); border-color: var(--verde); color: var(--verde); }
+
+.done-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--verde);
+}
+.done-badge svg { width: 16px; height: 16px; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 12px;
+  color: #aaa;
+  border-top: 1px solid var(--borda);
+  background: #fff;
+}
+footer strong { color: var(--texto-s); font-weight: 500; }
+footer a { color: var(--azul-m); text-decoration: none; }
+
+@media (max-width: 480px) {
+  .hero { padding: 2.5rem 1.25rem 2rem; }
+  .lessons { padding: 1rem 1rem 3rem; }
+  .lesson-info h3 { white-space: normal; }
+}
 </style>
 </head>
 <body>
-  <header class="cover">
-    <img src="data:image/jpeg;base64,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" alt="Logótipo Assembleias de Deus Miranda do Corvo">
-    <div class="kicker">Ministério de Multimédia, Comunicação, Som e Rádio</div>
-    <h1>Formação — Projeção / Multimédia no Culto</h1>
-    <div class="sub">Departamento de Projeção · programa Holyrics</div>
-    <div class="church">Assembleias de Deus — Miranda do Corvo · Poiares &amp; Arganil</div>
-    <div class="contacts">Rua Dom Afonso Henriques, n.º 25 — Miranda do Corvo · geral.admiranda@gmail.com · 910 009 776</div>
-  </header>
-  <div class="wrap">
 
-    <section class="howto">
-      <h2>Como funciona esta formação</h2>
-      <p>A formação faz-se <strong>através do questionário</strong>. Vais avançando <strong>lição a lição</strong>: em cada lição lês o conteúdo do manual e respondes a algumas perguntas. Só passas à lição seguinte depois de responder.</p>
-      <p>No fim, identificas-te para a coordenação registar que concluíste a formação.</p>
-    </section>
-
-    <div class="cta-wrap">
-      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdQc3nlhPDhkv87P-flQ_f1b0rfOf5COktJm-9zR97MU1GuGg/viewform" target="_blank" rel="noopener">Começar a formação →<small>Abre o questionário no Google Forms</small></a>
-    </div>
-
-    <h2 class="section">Programa da formação</h2>
-    <p class="hint">As 8 lições que vais percorrer:</p>
-    <ol class="program">
-      <li><span class="ln">Lição 1</span><span class="lt">Propósito e postura</span><span class="ld">Para que serve o departamento, os nossos valores e as regras de ouro.</span></li>
-      <li><span class="ln">Lição 2</span><span class="lt">A rotina do culto</span><span class="ld">O que fazer antes, durante e depois de cada culto.</span></li>
-      <li><span class="ln">Lição 3</span><span class="lt">Holyrics: primeiros passos</span><span class="ld">A janela do programa e a diferença entre conteúdo e tema.</span></li>
-      <li><span class="ln">Lição 4</span><span class="lt">Projetar letras de música</span><span class="ld">Adicionar, procurar e navegar nos slides ao vivo.</span></li>
-      <li><span class="ln">Lição 5</span><span class="lt">Versículos, textos e avisos</span><span class="ld">Bíblia, textos, anúncios e a função Alerta.</span></li>
-      <li><span class="ln">Lição 6</span><span class="lt">A oferta (MBWay e IBAN) e rodapé</span><span class="ld">O slide da oferta e as indicações em rodapé durante o louvor.</span></li>
-      <li><span class="ln">Lição 7</span><span class="lt">Temas, listas e identidade visual</span><span class="ld">Formatação, organização do culto e a fonte Lato.</span></li>
-      <li><span class="ln">Lição 8</span><span class="lt">Cópias de segurança e o futuro</span><span class="ld">Proteger o repertório e preparar as transmissões.</span></li>
-    </ol>
-
-    <div class="cta-wrap">
-      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdQc3nlhPDhkv87P-flQ_f1b0rfOf5COktJm-9zR97MU1GuGg/viewform" target="_blank" rel="noopener">Começar a formação →<small>Abre o questionário no Google Forms</small></a>
-    </div>
-
-    <footer class="foot">Documento de uso interno · Assembleias de Deus Miranda do Corvo, Poiares &amp; Arganil</footer>
+<div class="hero">
+  <img src="logo.png" alt="Assembleia de Deus – Miranda do Corvo, Poiares & Arganil" class="hero-logo">
+  <p class="hero-label">Assembleia de Deus · Miranda do Corvo, Poiares &amp; Arganil</p>
+  <h1>Curso de preparação<br><em>para o batismo</em></h1>
+  <p class="hero-sub">13 aulas · Parte I: Doutrina &nbsp;·&nbsp; Parte II: Integração</p>
+  <div class="hero-verse">
+    "Ide, portanto, fazei discípulos de todas as nações, baptizando-os em nome do Pai, e do Filho, e do Espírito Santo."
+    <span>Mateus 28:19</span>
   </div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-meta">
+    <p>O teu progresso</p>
+    <strong id="prog-label">0 de 13 aulas concluídas</strong>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="prog-bar" style="width:0%"></div>
+  </div>
+</div>
+
+<div class="lessons" id="lessons"></div>
+
+<footer>
+  <strong>Assembleia de Deus – Miranda do Corvo, Poiares &amp; Arganil</strong><br>
+  Rua Dom Afonso Henriques, Nº25 · <a href="mailto:geral.admiranda@gmail.com">geral.admiranda@gmail.com</a> · Tlm: 910 009 776<br>
+  <span style="margin-top:6px;display:block">Parte da <a href="https://www.cadp.pt" target="_blank">Convenção das Assembleias de Deus em Portugal (CADP)</a></span>
+</footer>
+
+<script>
+const LESSONS = [
+  {
+    num:1,
+    title:"O que é a conversão?",
+    desc:"Pecado, necessidade de salvação e o novo nascimento em Cristo",
+    verse:"Em verdade, em verdade te digo que aquele que não nascer de novo não pode ver o reino de Deus.",
+    ref:"João 3:3",
+    topics:[
+      "A queda do homem e as consequências do pecado (Romanos 3:23)",
+      "O que significa converter-se de coração",
+      "Arrependimento, fé, confissão e novo nascimento",
+      "2 Coríntios 5:17 – nova criatura em Cristo"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSeaJJC5UdfNzn4z3oxAjgyuBv6RUVYmIB8OJQimvWeX8ElTKg/viewform"
+  },
+  {
+    num:2,
+    title:"A declaração de fé da CADP",
+    desc:"Fundamentos doutrinários das Assembleias de Deus em Portugal",
+    verse:"Toda a Escritura é divinamente inspirada, e proveitosa para ensinar, para redarguir, para corrigir, para instruir em justiça.",
+    ref:"2 Timóteo 3:16",
+    topics:[
+      "A Santíssima Trindade – Pai, Filho e Espírito Santo",
+      "As Sagradas Escrituras como única autoridade suprema",
+      "O homem, o pecado e a salvação exclusivamente pela graça",
+      "A Segunda Vinda de Cristo e o Juízo Final"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSfHoummQziayEnZvDLoSHSVAGJu4EHtRVvqPvNhnsVgFPpJoA/viewform"
+  },
+  {
+    num:3,
+    title:"O batismo nas águas",
+    desc:"Significado, modo bíblico e preparação para o baptismo",
+    verse:"Fomos, pois, sepultados com Ele pelo batismo na morte, para que andemos em novidade de vida.",
+    ref:"Romanos 6:4",
+    topics:[
+      "O batismo por imersão total – modo bíblico e apostólico",
+      "O que o batismo simboliza: morte, sepultamento e ressurreição",
+      "Quem pode ser baptizado e as condições bíblicas",
+      "Como se preparar para o dia do batismo"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSc-OMDsbdH7O7X06Ixly_rfAYIpyUfEo-mwFs-Vo_SC62GCIQ/viewform"
+  },
+  {
+    num:4,
+    title:"A Ceia do Senhor",
+    desc:"O memorial da morte e ressurreição de Cristo",
+    verse:"Fazei isto em memória de mim.",
+    ref:"1 Coríntios 11:24",
+    topics:[
+      "O significado profundo do pão e do cálice",
+      "Quem pode participar na Ceia do Senhor",
+      "Exame pessoal antes de participar (1 Coríntios 11:28)",
+      "A Ceia como proclamação da esperança da vinda do Senhor"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSdSR7W0cMn8uk_DDGh85cqypEJvTbn3QnkysI3PbkPtnZWONw/viewform"
+  },
+  {
+    num:5,
+    title:"O batismo no Espírito Santo",
+    desc:"A plenitude do Espírito Santo e os dons espirituais",
+    verse:"Recebereis poder ao descer sobre vós o Espírito Santo, e ser-me-eis testemunhas.",
+    ref:"Actos 1:8",
+    topics:[
+      "O Batismo no Espírito Santo – distinto da conversão",
+      "A evidência inicial: falar em outras línguas (Actos 2:4)",
+      "Os dons espirituais de 1 Coríntios 12 e a sua actualidade",
+      "A cura divina como fruto da obra expiatória de Cristo"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSfoSuwATFXdJ7So9DwGT0xoAQu1TITLmGjbTIVXBv58iXtzgg/viewform"
+  },
+  {
+    num:6,
+    title:"A vida cristã e a santificação",
+    desc:"Crescimento espiritual, disciplinas e separação do mundo",
+    verse:"Sede santos, porque eu sou santo.",
+    ref:"1 Pedro 1:16",
+    topics:[
+      "Santificação posicional e progressiva",
+      "Separação do mundo e vida simples (Romanos 12:2)",
+      "As disciplinas espirituais essenciais do crente",
+      "Frutos visíveis da santificação na vida quotidiana"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSeC4l2jKzBmrI2nevISuY3TYAOJjsv12i8lnp2wuTpE8Fm-FQ/viewform"
+  },
+  {
+    num:7,
+    title:"Dízimos, ofertas e mordomia cristã",
+    desc:"Fidelidade financeira e gestão dos recursos que Deus confiou",
+    verse:"Honra ao Senhor com os teus bens e com as primícias de todos os teus lucros.",
+    ref:"Provérbios 3:9",
+    topics:[
+      "O dízimo – fundamento bíblico desde Génesis ao Novo Testamento",
+      "As ofertas como acto voluntário de adoração e gratidão",
+      "A promessa de Malaquias 3:10 e a fidelidade de Deus",
+      "Mordomia cristã: tempo, talentos, saúde e posses"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSeaMG7zajgQM-n6rQmUAG9Br0PpM5G_2XsHXNDOUBcu50siLQ/viewform"
+  },
+  {
+    num:8,
+    title:"A vida na Igreja local",
+    desc:"Membrasia, governo, culto e responsabilidades do crente",
+    verse:"Não deixando de congregar-nos uns com os outros.",
+    ref:"Hebreus 10:25",
+    topics:[
+      "Governo teocrático e consensual da Assembleia de Deus",
+      "O culto pentecostal – ordem e liberdade do Espírito",
+      "Direitos e responsabilidades do membro da Igreja",
+      "Serviço e ministérios na comunidade local"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSdDuJ5fFMMebDjIJY1smunNngsVc5--OH-pwf-uX5uhmdCmgg/viewform"
+  },
+  {
+    num:9,
+    title:"Preparação final e declaração de fé",
+    desc:"Lista de verificação, entrevista pastoral e declaração pessoal",
+    verse:"Se confessares com a tua boca que Jesus é Senhor, e creres no teu coração que Deus o ressuscitou dos mortos, serás salvo.",
+    ref:"Romanos 10:9",
+    topics:[
+      "Lista de verificação completa para o candidato ao baptismo",
+      "O que esperar no dia do baptismo",
+      "Declaração pessoal de fé perante a congregação",
+      "Marcação da entrevista final com o pastor"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSdPnhgzFgDuEMfysIRxB3CpRbquQ-XWjHgGZYTUHV8orMsJTQ/viewform"
+  },
+  {
+    num:10,
+    part:2,
+    title:"Cultura e sociedade portuguesa",
+    desc:"Identidade, valores, gastronomia, festividades e a língua portuguesa",
+    verse:"Nisto não há judeu nem grego; não há servo nem livre; porque todos vós sois um em Cristo Jesus.",
+    ref:"Gálatas 3:28",
+    topics:[
+      "Identidade e valores do povo português (a 'saudade', família, hospitalidade)",
+      "Festividades, tradições e gastronomia nacionais",
+      "Etiqueta social e costumes do quotidiano",
+      "A língua portuguesa como porta de integração",
+      "Documentação essencial: NIF, NISS, residência, SNS"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSeRkHQjq7r_169T-pqXAbPMnXcq1pzq8rlwJ6KVsZphc4FU2w/viewform"
+  },
+  {
+    num:11,
+    part:2,
+    title:"Viver em Portugal: álcool, condução e documentação",
+    desc:"Abordagem cristã ao álcool e as leis de trânsito e identificação",
+    verse:"Não vos embriagueis com vinho, em que há dissolução; mas enchei-vos do Espírito.",
+    ref:"Efésios 5:18",
+    topics:[
+      "O álcool na cultura portuguesa – uma abordagem bíblica equilibrada",
+      "Abstinência e consumo moderado: liberdade e responsabilidade",
+      "Carta de condução, seguro obrigatório e inspeção do veículo",
+      "Motociclos: uso obrigatório de capacete",
+      "Dever de ter sempre documento de identificação na via pública"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSeIpHqd9ZdrbrBPdRbJ7Kyz8Jgxh9DJ66jSngB8o6kok03dfA/viewform"
+  },
+  {
+    num:12,
+    part:2,
+    title:"Integração na Igreja local",
+    desc:"Acolhimento, diversidade cultural, direitos e responsabilidades",
+    verse:"Vi uma grande multidão de todas as nações, e tribos, e povos, e línguas, em pé diante do trono.",
+    ref:"Apocalipse 7:9",
+    topics:[
+      "O acolhimento do novo membro na comunidade",
+      "Diversidade cultural como riqueza e unidade em Cristo",
+      "Diferença entre práticas culturais e doutrina bíblica",
+      "Práticas religiosas de outras origens – libertação em Cristo",
+      "Direitos e responsabilidades do membro da Igreja"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSf4cmM8lWyZFVC_4IjEEXKC4ZAAjtm3ocNXQDgs9-NSvGk-cw/viewform"
+  },
+  {
+    num:13,
+    part:2,
+    title:"Recursos, apoio e conclusão",
+    desc:"Recursos de apoio à integração e conclusão do curso completo",
+    verse:"E assim, pela fé e pela paciência, herdarão as promessas.",
+    ref:"Hebreus 6:12",
+    topics:[
+      "Apoio disponível na Igreja para o novo membro",
+      "Recursos nacionais: ACM, AIMA, Segurança Social, SNS, IMT",
+      "Contactos úteis da nossa comunidade",
+      "Conclusão e reflexão final sobre todo o percurso",
+      "Próximos passos no caminho de fé e integração"
+    ],
+    form:"https://docs.google.com/forms/d/e/1FAIpQLSd4KT-XMrjPZ8vnt7eEMJuyukPRktYYKnJMEuqNM8ZulfNZ7Q/viewform"
+  }
+];
+
+const TOTAL = LESSONS.length;
+const STORAGE_KEY = 'admc_batismo_v3';
+
+function getState() {
+  try {
+    const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+    if (s && Array.isArray(s.done)) return s;
+  } catch(e) {}
+  return { done: [], open: 1 };
+}
+
+function saveState(s) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch(e) {}
+}
+
+function iconCheck() {
+  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,8 6.5,12 13,4"/></svg>`;
+}
+function iconBook() {
+  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h5a2 2 0 0 1 2 2v9l-3.5-2L2 14V3z"/><path d="M14 3H9a2 2 0 0 0-2 2v9l3.5-2L14 14V3z"/></svg>`;
+}
+function iconLock() {
+  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="8" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>`;
+}
+function iconExternal() {
+  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9"/><polyline points="10,2 14,2 14,6"/><line x1="14" y1="2" x2="7" y2="9"/></svg>`;
+}
+
+function render() {
+  const state = getState();
+  const doneCount = state.done.length;
+  document.getElementById('prog-bar').style.width = (doneCount / TOTAL * 100) + '%';
+  document.getElementById('prog-label').textContent = doneCount + ' de ' + TOTAL + ' aulas concluídas';
+
+  const container = document.getElementById('lessons');
+  container.innerHTML = '';
+
+  let lastPart = 0;
+  LESSONS.forEach(l => {
+    const isDone = state.done.includes(l.num);
+    const isOpen = state.open === l.num;
+    const isLocked = !isDone && !isOpen;
+
+    const thisPart = l.part || 1;
+    if (thisPart !== lastPart) {
+      lastPart = thisPart;
+      const divider = document.createElement('div');
+      divider.className = 'part-divider';
+      divider.innerHTML = thisPart === 1
+        ? '<span class="part-tag">Parte I</span><span class="part-name">Manual do candidato ao batismo</span>'
+        : '<span class="part-tag part-tag-2">Parte II</span><span class="part-name">Guia de integração na comunidade</span>';
+      container.appendChild(divider);
+    }
+
+    const div = document.createElement('div');
+    div.className = 'lesson' + (isDone ? ' done' : isOpen ? ' active' : ' locked');
+
+    const numClass = isDone ? 'num-done' : isOpen ? 'num-active' : 'num-locked';
+    const numIcon = isDone ? iconCheck() : isOpen ? iconBook() : iconLock();
+    const badgeClass = isDone ? 'badge-done' : isOpen ? 'badge-active' : 'badge-locked';
+    const badgeText = isDone ? 'Concluída' : isOpen ? 'A decorrer' : 'Bloqueada';
+
+    let body = '';
+    if (isOpen || isDone) {
+      const topicsHtml = l.topics.map(t => `<li>${t}</li>`).join('');
+      const cta = isDone
+        ? `<div class="done-badge">${iconCheck()} Formulário submetido – aula concluída</div>`
+        : `<a class="btn-form" href="${l.form}" target="_blank" rel="noopener">${iconExternal()} Abrir questionário desta aula</a>
+           <button class="btn-done" onclick="markDone(event,${l.num})">✓ Já submeti o formulário</button>`;
+
+      body = `<div class="lesson-body">
+        <p class="lesson-intro">${l.desc}</p>
+        <div class="verse">
+          <p>"${l.verse}"</p>
+          <span>${l.ref}</span>
+        </div>
+        <p class="topics-title">Temas desta aula</p>
+        <ul class="topics">${topicsHtml}</ul>
+        <div class="cta-wrap">${cta}</div>
+      </div>`;
+    }
+
+    div.innerHTML = `
+      <div class="lesson-header" role="button" tabindex="0" aria-expanded="${isOpen}" onclick="toggleLesson(${l.num},${isLocked})" onkeydown="if(event.key==='Enter')toggleLesson(${l.num},${isLocked})">
+        <div class="num ${numClass}">${numIcon}</div>
+        <div class="lesson-info">
+          <h3>Aula ${l.num} — ${l.title}</h3>
+          <p>${l.desc}</p>
+        </div>
+        <span class="badge ${badgeClass}">${badgeText}</span>
+      </div>
+      ${body}
+    `;
+    container.appendChild(div);
+  });
+}
+
+function toggleLesson(num, locked) {
+  if (locked) return;
+  const state = getState();
+  state.open = (state.open === num) ? null : num;
+  saveState(state);
+  render();
+}
+
+function markDone(e, num) {
+  e.preventDefault();
+  const state = getState();
+  if (!state.done.includes(num)) state.done.push(num);
+  state.open = num < TOTAL ? num + 1 : null;
+  saveState(state);
+  render();
+  setTimeout(() => {
+    const next = document.querySelector('.lesson.active');
+    if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 150);
+}
+
+render();
+</script>
 </body>
 </html>
